@@ -131,8 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroType: 0
-  bobSprite: {fileID: 21300000, guid: c61ae18338bba2a408785bf23b5026c7, type: 3}
-  totSprite: {fileID: 21300000, guid: 9c0ef4377e5cf6d469cb892d37f6c63a, type: 3}
+  moveSpeed: 10
 --- !u!61 &3104167123579421607
 BoxCollider2D:
   m_ObjectHideFlags: 0
