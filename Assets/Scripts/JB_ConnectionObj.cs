@@ -34,6 +34,9 @@ public class JB_ConnectionObj : NetworkBehaviour
 
     private GameObject playerUnit;
 
+    // length of 2, one for each player
+    private List<bool> ready = new List<bool>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,12 +80,11 @@ public class JB_ConnectionObj : NetworkBehaviour
         // find all the player connection objects in scene
         connectionObjects = GameObject.FindGameObjectsWithTag(this.tag);
 
-        // length of 2, one for each player
-        List<bool> ready = new List<bool>();
+        ready.Clear();
 
         foreach(KeyValuePair<NetworkInstanceId,NetworkIdentity> pair in NetworkServer.objects)
         {
-            if(pair.Value.gameObject.tag == "Player")
+            if(pair.Value.gameObject.tag == "PlayerConnection")
             {
                 ready.Add(pair.Value.gameObject.GetComponent<JB_ConnectionObj>().isReady);
             }
@@ -124,6 +126,7 @@ public class JB_ConnectionObj : NetworkBehaviour
             // tot button
             else
             {
+                selectionPhaseObj.SetActive(false);
                 CmdDisableButton(obj, 1);
             }
         }
@@ -180,6 +183,7 @@ public class JB_ConnectionObj : NetworkBehaviour
         }
 
         
+
         RpcDisableButton(playerObj, enumIndex);
     }
 

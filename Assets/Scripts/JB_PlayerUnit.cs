@@ -33,4 +33,5 @@ public class JB_PlayerUnit : NetworkBehaviour
         rb.velocity = new Vector2(directionX, rb.velocity.y);
     }
 
+
 }
