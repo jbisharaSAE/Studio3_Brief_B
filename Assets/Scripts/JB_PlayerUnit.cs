@@ -8,10 +8,12 @@ public class JB_PlayerUnit : NetworkBehaviour
 {
     public HeroType heroType;
 
-    private Rigidbody2D rb;
-
-    private float directionX;
     public float moveSpeed = 5f;
+    public float jumpForce = 2f;
+
+    private Rigidbody2D rb;
+    private float directionX;
+    private bool isGrounded;
 
     public override void OnStartAuthority()
     {
@@ -31,6 +33,20 @@ public class JB_PlayerUnit : NetworkBehaviour
         if (!this.hasAuthority) { return; }
 
         rb.velocity = new Vector2(directionX, rb.velocity.y);
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            isGrounded = false;
+        }
+        
+        
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        isGrounded = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

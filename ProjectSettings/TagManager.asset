@@ -7,6 +7,7 @@ TagManager:
   - CameraWP
   - PlayerConnection
   - LeverTrigger
+  - PressurePlate
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - 
   - 
   - Wall
+  - Pressure
   - Ground
-  - 
   - 
   - 
   - 

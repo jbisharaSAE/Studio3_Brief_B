@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroType: 0
   moveSpeed: 10
+  jumpForce: 4.5
 --- !u!61 &3104167123579421607
 BoxCollider2D:
   m_ObjectHideFlags: 0

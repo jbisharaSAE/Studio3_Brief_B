@@ -5,22 +5,26 @@ using UnityEngine;
 public class JB_LeverTrigger : MonoBehaviour
 {
     public Transform lever;
+    public Transform platform;
 
     public bool bToggle;
 
-    public float speed = 0.1f;
+    public float platformSpeed = 0.1f;
+    public float rotateSpeed = 200f;
 
     public Transform leftTarget;
     public Transform rightTarget;
 
-    private Rigidbody2D leverRB;
+    public Transform locationOne;
+    public Transform locationTwo;
 
-    private bool isRotating;
-    public float rotateSpeed = 200f;
+    private Rigidbody2D leverRB;
+    
 
     private void Awake()
     {
         leverRB = lever.GetComponent<Rigidbody2D>();
+
     }
 
     
@@ -58,4 +62,26 @@ public class JB_LeverTrigger : MonoBehaviour
         leverRB.angularVelocity = -rotateAmount * rotateSpeed;
     }
 
+    private void Update()
+    {
+        if (bToggle)
+        {
+            MovePlatform(locationTwo.position);
+        }
+        else
+        {
+            MovePlatform(locationOne.position);
+        }
+    }
+
+    private void MovePlatform(Vector3 targetPos)
+    {
+        float step = platformSpeed * Time.deltaTime;
+
+        //Vector2 direction = platform.position - targetPos;
+        //float distance = Vector2.Distance(platform.position, targetPos);
+
+        platform.position = Vector2.MoveTowards(platform.position, targetPos, step);
+
+    }
 }
