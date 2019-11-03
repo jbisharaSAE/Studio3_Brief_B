@@ -33,5 +33,13 @@ public class JB_PlayerUnit : NetworkBehaviour
         rb.velocity = new Vector2(directionX, rb.velocity.y);
     }
 
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Trigger entered");
+        if(collision.gameObject.tag == "LeverTrigger")
+        {
+            collision.gameObject.GetComponent<JB_LeverTrigger>().bToggle = !collision.gameObject.GetComponent<JB_LeverTrigger>().bToggle;
+            Debug.Log("player hit lever trigger");
+        }
+    }
 }

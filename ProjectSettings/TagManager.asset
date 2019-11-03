@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraWP
   - PlayerConnection
+  - LeverTrigger
   layers:
   - Default
   - TransparentFX
