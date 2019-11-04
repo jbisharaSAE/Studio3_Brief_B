@@ -97,10 +97,12 @@ public class JB_ConnectionObj : NetworkBehaviour
         if (all)
         {
             // start game - TODO
+            selectionPhaseObj.SetActive(false);
             Debug.Log("game started!");
         }
         else
         {
+            selectionPhaseObj.SetActive(false);
             // wait for other player - TODO
         }
    
