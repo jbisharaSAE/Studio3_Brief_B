@@ -5,20 +5,23 @@ using UnityEngine;
 public class JB_PressurePlate : MonoBehaviour
 {
     
-    public float scaleSpeed;
-
     public bool reset = false;
-
-    private Vector2 startPos;
-    private Vector2 endPos;
-
     public float speed = 2f;
+
+    public Transform platform;
+    public Transform platformStartPos;
+    public Transform platformEndPos;
+
+    private float yPos;
+    private float minClamp;
+
+    private Rigidbody2D rb;
+    private bool pressed = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        startPos = transform.position;
-        endPos = new Vector2(transform.position.x, transform.position.y - 1f);
+       
     }
 
     // Update is called once per frame
@@ -26,49 +29,37 @@ public class JB_PressurePlate : MonoBehaviour
     {
         float step = speed * Time.deltaTime;
 
-        if (!reset)
+        if (pressed)
         {
-            // move button down, using layers to hide the button
-            transform.position = Vector2.MoveTowards(startPos, endPos, step);
-            
+            platform.position = Vector2.MoveTowards(platform.position, platformEndPos.position, step);
         }
-        else 
+        else
         {
-            // move button down, using layers to hide the button
-            transform.position = Vector2.MoveTowards(endPos, startPos, step);
+            platform.position = Vector2.MoveTowards(platform.position, platformStartPos.position, step);
         }
+        
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void FixedUpdate()
     {
-        reset = false;
+        
     }
 
-    //private void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    if(collision.gameObject.tag == "Player")
-    //    {
-    //        if(collision.gameObject.GetComponent<JB_PlayerUnit>().heroType == HeroType.Bob)
-    //        {
-    //            float xScale = 0f; // width scale
-    //            float yScale = 0.08f; // starting size of pressure plate
-    //            float zScale = 0f;
-
-
-    //            if (yScale > 0.01f)
-    //            {
-    //                yScale -= scaleSpeed;
-    //                Vector3 scaleSize = new Vector3(xScale, yScale, zScale);
-    //                transform.localScale -= scaleSize;
-    //            }
-
-                
-    //        }
-    //    }
-    //}
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            if(collision.gameObject.GetComponent<JB_PlayerUnit>().heroType == HeroType.Bob)
+            {
+                pressed = true;
+                Debug.Log("testing bob");
+            }
+        }
+        
+    }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        reset = true;
+        pressed = false;
     }
 }
