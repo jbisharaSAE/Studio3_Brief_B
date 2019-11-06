@@ -70,7 +70,9 @@ public class JB_ConnectionObj : NetworkBehaviour
 
         CmdSpawnCharacter(heroType);
 
-        mainCam.transform.position = mainCamWp.position;
+        //mainCam.transform.position = mainCamWp.position;
+
+        mainCam.GetComponent<JB_CameraFollowPlayer>().target = playerUnit;
 
         CheckPlayerReady();
     }
@@ -98,6 +100,7 @@ public class JB_ConnectionObj : NetworkBehaviour
         {
             // start game - TODO
             selectionPhaseObj.SetActive(false);
+            //StartGame(playerUnit);
             Debug.Log("game started!");
         }
         else
@@ -106,6 +109,30 @@ public class JB_ConnectionObj : NetworkBehaviour
             // wait for other player - TODO
         }
    
+    }
+
+    private void StartGame(GameObject playerUnit)
+    {
+        if (isServer)
+        {
+            RpcEnableController(playerUnit);
+        }
+        else
+        {
+            CmdEnableController(playerUnit);
+        }
+    }
+
+    [Command]
+    void CmdEnableController(GameObject playerUnit)
+    {
+        RpcEnableController(playerUnit);
+    }
+
+    [ClientRpc]
+    void RpcEnableController(GameObject playerUnit)
+    {
+        playerUnit.GetComponent<JB_PlayerUnit>().enabled = true;
     }
 
     [Command]
