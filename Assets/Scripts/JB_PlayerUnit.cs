@@ -15,15 +15,23 @@ public class JB_PlayerUnit : NetworkBehaviour
     private float directionX;
     private bool isGrounded;
 
+    public GameObject playerCamera;
+    public bool canMove = false;
+
     public override void OnStartAuthority()
     {
+        if (!hasAuthority) { return; }
+
         rb = GetComponent<Rigidbody2D>();
+        playerCamera.SetActive(true);
+        playerCamera.transform.parent = null;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(!this.hasAuthority) { return; }
+        if (!canMove) { return; }
 
         directionX = Input.GetAxisRaw("Horizontal") * moveSpeed;
     }
@@ -31,6 +39,7 @@ public class JB_PlayerUnit : NetworkBehaviour
     private void FixedUpdate()
     {
         if (!this.hasAuthority) { return; }
+        if (!canMove) { return; }
 
         rb.velocity = new Vector2(directionX, rb.velocity.y);
 

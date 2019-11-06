@@ -70,19 +70,17 @@ public class JB_ConnectionObj : NetworkBehaviour
 
         CmdSpawnCharacter(heroType);
 
-        //mainCam.transform.position = mainCamWp.position;
-
-        mainCam.GetComponent<JB_CameraFollowPlayer>().target = playerUnit;
 
         CheckPlayerReady();
     }
 
+   
     private void CheckPlayerReady()
     {
         // find all the player connection objects in scene
         connectionObjects = GameObject.FindGameObjectsWithTag(this.tag);
 
-        ready.Clear();
+        //ready.Clear();
 
         foreach(KeyValuePair<NetworkInstanceId,NetworkIdentity> pair in NetworkServer.objects)
         {
@@ -100,39 +98,40 @@ public class JB_ConnectionObj : NetworkBehaviour
         {
             // start game - TODO
             selectionPhaseObj.SetActive(false);
-            //StartGame(playerUnit);
+            
+            CmdEnableController();
             Debug.Log("game started!");
         }
         else
         {
             selectionPhaseObj.SetActive(false);
+            Debug.Log("one player ready");
             // wait for other player - TODO
         }
    
     }
 
-    private void StartGame(GameObject playerUnit)
-    {
-        if (isServer)
-        {
-            RpcEnableController(playerUnit);
-        }
-        else
-        {
-            CmdEnableController(playerUnit);
-        }
-    }
 
     [Command]
-    void CmdEnableController(GameObject playerUnit)
+    void CmdEnableController()
     {
-        RpcEnableController(playerUnit);
+        foreach (KeyValuePair<NetworkInstanceId, NetworkIdentity> pair in NetworkServer.objects)
+        {
+            if (pair.Value.gameObject.tag == "Player")
+            {
+                pair.Value.gameObject.GetComponent<JB_PlayerUnit>().canMove = true;
+                RpcEnableController(pair.Value.gameObject);
+            }
+        }
+
+        
     }
 
     [ClientRpc]
-    void RpcEnableController(GameObject playerUnit)
+    void RpcEnableController(GameObject playerObj)
     {
-        playerUnit.GetComponent<JB_PlayerUnit>().enabled = true;
+    
+        playerObj.GetComponent<JB_PlayerUnit>().canMove = true;
     }
 
     [Command]
@@ -184,7 +183,7 @@ public class JB_ConnectionObj : NetworkBehaviour
         }
 
 
-        //RpcSpawnCharacter(go, hType);
+        
 
     }
 

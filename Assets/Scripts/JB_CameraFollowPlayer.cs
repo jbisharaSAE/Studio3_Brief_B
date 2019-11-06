@@ -13,7 +13,7 @@ public class JB_CameraFollowPlayer : MonoBehaviour
         {
 
             transform.position = new Vector3(target.transform.position.x, target.transform.position.y, -10f);
-            Debug.Log("testing if statement");
+            
         }
             
     }
