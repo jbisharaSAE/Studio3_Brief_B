@@ -229,6 +229,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  leftClamp: 0
+  rightClamp: 0
+  topClamp: 0
+  bottomClamp: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

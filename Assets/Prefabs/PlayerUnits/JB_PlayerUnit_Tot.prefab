@@ -137,6 +137,8 @@ MonoBehaviour:
   jumpForce: 8
   playerCamera: {fileID: 8904884916114565111}
   canMove: 0
+  blackTextBoxArea: {fileID: 0}
+  dialogueTextBox: {fileID: 0}
 --- !u!61 &3104167123579421607
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,7 +184,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &3104230787575126824
 MonoBehaviour:

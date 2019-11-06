@@ -55,6 +55,7 @@ public class JB_ConnectionObj : NetworkBehaviour
     public void SpawnCharacter(int hType)
     {
         if (!this.isLocalPlayer) { return; }
+        
         // 0 for bob, 1 for tot ... button OnClick() does not take enum for parameters
         switch (hType)
         {
@@ -137,12 +138,13 @@ public class JB_ConnectionObj : NetworkBehaviour
     [Command]
     public void CmdSpawnCharacter(HeroType hType)
     {
+
         isReady = true;
 
         // find all the player connection objects in scene
         connectionObjects = GameObject.FindGameObjectsWithTag(this.tag);
 
-        // disabling the hero button that got selected - TODO does not work on other client
+        // disabling the hero button that got selected 
 
         foreach(GameObject obj in connectionObjects)
         {
@@ -164,6 +166,7 @@ public class JB_ConnectionObj : NetworkBehaviour
         // 12 units to the right of starting spawn
         Vector2 spawnPos = new Vector2(12f, 0f);
 
+        // spawn correct unit type based off player button click from main menu
         switch (hType)
         {
             case HeroType.Bob:
@@ -182,9 +185,6 @@ public class JB_ConnectionObj : NetworkBehaviour
 
         }
 
-
-        
-
     }
 
     [ClientRpc]
@@ -198,6 +198,7 @@ public class JB_ConnectionObj : NetworkBehaviour
     void CmdDisableButton(GameObject playerObj, int enumIndex)
     {
         // 0 for bob button, 1 for tot button
+        // disables the button so the other player cannot select the same character
         switch (enumIndex)
         {
             case 0:
@@ -219,6 +220,7 @@ public class JB_ConnectionObj : NetworkBehaviour
     void RpcDisableButton(GameObject playerObj, int enumIndex)
     {
         // 0 for bob button, 1 for tot button
+        // disables the button so the other player cannot select the same character
         switch (enumIndex)
         {
             case 0:

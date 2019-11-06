@@ -84,4 +84,12 @@ public class JB_LeverTrigger : MonoBehaviour
         platform.position = Vector2.MoveTowards(platform.position, targetPos, step);
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            bToggle = !bToggle;
+        }
+    }
 }

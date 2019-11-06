@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-
+using TMPro;
 
 public class JB_PlayerUnit : NetworkBehaviour
 {
@@ -13,10 +13,13 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     private Rigidbody2D rb;
     private float directionX;
-    private bool isGrounded;
+    public bool isGrounded;
 
     public GameObject playerCamera;
     public bool canMove = false;
+
+    public GameObject blackTextBoxArea;
+    public TextMeshProUGUI dialogueTextBox;
 
     public override void OnStartAuthority()
     {
@@ -53,18 +56,18 @@ public class JB_PlayerUnit : NetworkBehaviour
         
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         isGrounded = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Trigger entered");
-        if(collision.gameObject.tag == "LeverTrigger")
-        {
-            collision.gameObject.GetComponent<JB_LeverTrigger>().bToggle = !collision.gameObject.GetComponent<JB_LeverTrigger>().bToggle;
-            Debug.Log("player hit lever trigger");
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    Debug.Log("Trigger entered");
+    //    if(collision.gameObject.tag == "LeverTrigger")
+    //    {
+    //        collision.gameObject.GetComponent<JB_LeverTrigger>().bToggle = !collision.gameObject.GetComponent<JB_LeverTrigger>().bToggle;
+    //        Debug.Log("player hit lever trigger");
+    //    }
+    //}
 }

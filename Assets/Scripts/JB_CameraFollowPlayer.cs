@@ -6,6 +6,11 @@ public class JB_CameraFollowPlayer : MonoBehaviour
 {
     public GameObject target;
 
+    public float leftClamp;
+    public float rightClamp;
+    public float topClamp;
+    public float bottomClamp;
+
     // Update is called once per frame
     void Update()
     {

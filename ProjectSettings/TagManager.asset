@@ -8,6 +8,7 @@ TagManager:
   - PlayerConnection
   - LeverTrigger
   - PressurePlate
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - 
   - Player
   - PlatformPlayer
-  - 
+  - Grocery
   - 
   - 
   - 
