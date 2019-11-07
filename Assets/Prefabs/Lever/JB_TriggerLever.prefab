@@ -457,7 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lever: {fileID: 0}
   platform: {fileID: 7429338539314319005}
-  bToggle: 1
+  bToggle: 0
   platformSpeed: 2.5
   rotateSpeed: 200
   leftTarget: {fileID: 7429338539241822478}
