@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using TMPro;
 
 public enum HeroType { Bob = 0, Tot = 1 }
 
@@ -23,6 +24,8 @@ public class JB_ConnectionObj : NetworkBehaviour
 
     [SyncVar]
     public bool isReady;
+
+    public GameObject waitingForPlayerTextBox;
 
     // player connection objects
     private GameObject[] connectionObjects;
@@ -106,6 +109,7 @@ public class JB_ConnectionObj : NetworkBehaviour
         else
         {
             selectionPhaseObj.SetActive(false);
+            waitingForPlayerTextBox.SetActive(true);
             Debug.Log("one player ready");
             // wait for other player - TODO
         }
@@ -121,11 +125,24 @@ public class JB_ConnectionObj : NetworkBehaviour
             if (pair.Value.gameObject.tag == "Player")
             {
                 pair.Value.gameObject.GetComponent<JB_PlayerUnit>().canMove = true;
+                
                 RpcEnableController(pair.Value.gameObject);
+            }
+
+            if(pair.Value.gameObject.tag == "PlayerConnection")
+            {
+                pair.Value.gameObject.GetComponent<JB_ConnectionObj>().waitingForPlayerTextBox.SetActive(false);
+                RpcTurnOffWaitMessage(pair.Value.gameObject);
             }
         }
 
         
+    }
+
+    [ClientRpc]
+    void RpcTurnOffWaitMessage(GameObject obj)
+    {
+        obj.GetComponent<JB_ConnectionObj>().waitingForPlayerTextBox.SetActive(false);
     }
 
     [ClientRpc]

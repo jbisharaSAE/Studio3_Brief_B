@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GroceryList { Banana, Deli, Bread, Milk, Cheese }
+public enum GroceryList { Banana, Deli, Bread, Milk, Cheese, Cereal, Apple, Tomato, Potato }
 public class JB_GroceryItem : MonoBehaviour
 {
+    public delegate void ItemPickup(GroceryList itemType);
+    public static event ItemPickup onPickup;
+
     public GroceryList groceryType;
+
+    public JB_GroceryManager managerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -24,5 +29,15 @@ public class JB_GroceryItem : MonoBehaviour
         float z = Mathf.Cos(Time.time * 20 / Mathf.PI) * 0.5f;
         
         transform.Rotate(0f, 0f, z);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            onPickup(groceryType);
+            //managerScript.SendMessage("SwapGreenTick", groceryType);
+            Destroy(gameObject);
+        }
     }
 }
