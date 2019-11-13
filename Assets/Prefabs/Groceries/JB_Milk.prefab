@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2feeb799576c3ce4787b5b1996e669db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groceryType: 3
+  groceryType: 4
   managerScript: {fileID: 0}
 --- !u!61 &1865614422104048025
 BoxCollider2D:

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GroceryList { Banana, Deli, Bread, Milk, Cheese, Cereal, Apple, Tomato, Potato }
+public enum GroceryList { Banana, Battery, Bread, Meat, Milk, Toothpaste, Soap, Pillow, Ruler, Linen, Timber }
 public class JB_GroceryItem : MonoBehaviour
 {
     public delegate void ItemPickup(GroceryList itemType);
@@ -10,7 +10,7 @@ public class JB_GroceryItem : MonoBehaviour
 
     public GroceryList groceryType;
 
-    public JB_GroceryManager managerScript;
+    
 
     // Start is called before the first frame update
     void Start()

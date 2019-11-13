@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1865614422104048024}
   - component: {fileID: 1865614422104048025}
   m_Layer: 17
-  m_Name: JB_Apple
+  m_Name: JB_Soap
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5efd74a3227726844a0f0b966aa91de5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8c799a1266ad8d94bab2b7e58070cf31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

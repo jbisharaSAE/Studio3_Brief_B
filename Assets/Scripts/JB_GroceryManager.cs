@@ -17,7 +17,7 @@ public class JB_GroceryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemPickedUp = new bool[9]; // one for each grocery
+        itemPickedUp = new bool[11]; // one for each grocery
     }
 
     private void OnEnable()
