@@ -1,0 +1,24 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+
+public class JB_LeftButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+{
+    public JB_PlayerUnit playerUnitScript;
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        playerUnitScript.Movement(-1);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        playerUnitScript.Movement(0);
+    }
+
+   
+}
