@@ -667,6 +667,7 @@ MonoBehaviour:
   isGrounded: 0
   canMove: 0
   playerCamera: {fileID: 7586672128422464048}
+  userControls: {fileID: 9146734978948437553}
   activateButton: {fileID: 6830060264232311186}
   blackTextBoxArea: {fileID: 8123437409861137660}
   dialogueTextBox: {fileID: 3945649973456021364}
@@ -1425,7 +1426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2860876820857674678
 Transform:
   m_ObjectHideFlags: 0

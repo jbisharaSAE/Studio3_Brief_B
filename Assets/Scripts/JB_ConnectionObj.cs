@@ -26,7 +26,7 @@ public class JB_ConnectionObj : NetworkBehaviour
     public bool isReady;
 
     public GameObject waitingForPlayerTextBox;
-
+    
     // player connection objects
     private GameObject[] connectionObjects;
 
@@ -155,7 +155,7 @@ public class JB_ConnectionObj : NetworkBehaviour
     [Command]
     public void CmdSpawnCharacter(HeroType hType)
     {
-
+        
         isReady = true;
 
         // find all the player connection objects in scene
@@ -181,7 +181,7 @@ public class JB_ConnectionObj : NetworkBehaviour
         
 
         // 12 units to the right of starting spawn
-        Vector2 spawnPos = new Vector2(12f, 0f);
+        Vector2 spawnPos = new Vector2(31f, -0.1f);
 
         // spawn correct unit type based off player button click from main menu
         switch (hType)

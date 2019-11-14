@@ -22,6 +22,7 @@ public class JB_PlayerUnit : NetworkBehaviour
     public bool canMove = false;
 
     public GameObject playerCamera;
+    public GameObject userControls;
 
     public GameObject activateButton;
     public GameObject blackTextBoxArea;
@@ -35,6 +36,7 @@ public class JB_PlayerUnit : NetworkBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerCamera.SetActive(true);
         playerCamera.transform.parent = null;
+        userControls.SetActive(true);
     }
 
     // Update is called once per frame

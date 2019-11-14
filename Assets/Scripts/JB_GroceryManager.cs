@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor.SceneManagement;
 using UnityEngine.Events;
+using System;
+using System.Linq;
+using TMPro;
+
 public class JB_GroceryManager : MonoBehaviour
 {
     public Image[] crossTickImg;
     public Sprite greenTick;
+
+    public GameObject blackTextBoxArea;
+    public TextMeshProUGUI alertText;
 
     private bool[] itemPickedUp;
 
@@ -47,87 +53,60 @@ public class JB_GroceryManager : MonoBehaviour
     public void TestItemsPickedUp()
     {
         // testing to see if player has the 3 items in the level to proceed to next level
-        switch (currentLevel)
+        if (RunMyForLoop())
         {
-            // each level requires 3 grocery items to be picked up
-            case 1:
-                if (RunMyForLoop(3))
-                {
-                    Debug.Log("reached next level");
-                    // next level
-                }
-                else
-                {
-                    Debug.LogWarning("Please find all grocery items!");
-                    // alert player to find other grocery items
-                }
-                break;
-            case 2:
-                if (RunMyForLoop(6))
-                {
-                    // next level
-                }
-                else
-                {
-                    // alert player to find other grocery items
-                }
-                break;
-            case 3:
-                if (RunMyForLoop(9))
-                {
-                    // next level
-                }
-                else
-                {
-                    // alert player to find other grocery items
-                }
-                break;
-            default:
-                break;
-                    
+            // level complete
+        }
+        else
+        {
+            // alert player to find all items
+            StartCoroutine(CoAlertPlayer());
         }
 
     }
 
-    private void OnLevelWasLoaded(int level)
+    IEnumerator CoAlertPlayer()
     {
-        // changing the value of current level every time we change scenes
-
-        switch (level)
-        {
-            // main menu
-            case 0:
-                currentLevel = 0;
-                break;
-            // level one
-            case 1:
-                currentLevel = 1;
-                break;
-            // level two
-            case 2:
-                currentLevel = 2;
-                break;
-            // level three
-            case 3:
-                currentLevel = 3;
-                break;
-        }
-
+        // turning on and off the alert text box area
+        blackTextBoxArea.SetActive(true);
+        alertText.text = "Please find remaining items on the list";
+        yield return new WaitForSeconds(3.5f);
+        blackTextBoxArea.SetActive(false);
+        alertText.text = "";
     }
 
-    private bool RunMyForLoop(int length)
+    //private void OnLevelWasLoaded(int level)
+    //{
+    //    // changing the value of current level every time we change scenes
+
+    //    switch (level)
+    //    {
+    //        // main menu
+    //        case 0:
+    //            currentLevel = 0;
+    //            break;
+    //        // level one
+    //        case 1:
+    //            currentLevel = 1;
+    //            break;
+    //        // level two
+    //        case 2:
+    //            currentLevel = 2;
+    //            break;
+    //        // level three
+    //        case 3:
+    //            currentLevel = 3;
+    //            break;
+    //    }
+
+    //}
+
+    private bool RunMyForLoop()
     {
-        int counter = 0;
+        bool allTrue = itemPickedUp.All(x => x);
 
-        foreach(bool item in itemPickedUp)
-        {
-            if (item)
-            {
-                counter++;
-            }
-        }
-
-        if(counter == length)
+        // if all booleans are true (items are picked up)
+        if (allTrue)
         {
             return true;
         }
@@ -135,6 +114,5 @@ public class JB_GroceryManager : MonoBehaviour
         {
             return false;
         }
-
     }
 }
