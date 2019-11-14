@@ -378,6 +378,8 @@ MonoBehaviour:
   - {fileID: 343130214753319217}
   - {fileID: 3953081005191756163}
   greenTick: {fileID: 21300000, guid: 9e2dd9f4f5dda90449d2ad74ffe3e26f, type: 3}
+  blackTextBoxArea: {fileID: 6352637578270667700}
+  alertText: {fileID: 1758020185080213645}
 --- !u!1 &2000050149557809916
 GameObject:
   m_ObjectHideFlags: 0
