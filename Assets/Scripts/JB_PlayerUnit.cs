@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.Networking;
 using TMPro;
 
+
 public class JB_PlayerUnit : NetworkBehaviour
 {
+    public delegate void WaterLevelAction();
+    public static event WaterLevelAction OnWaterButton;
+
     public HeroType heroType;
 
     public float moveSpeed = 5f;
@@ -13,13 +17,16 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     private Rigidbody2D rb;
     private float directionX;
-    public bool isGrounded;
 
-    public GameObject playerCamera;
+    public bool isGrounded;
     public bool canMove = false;
 
+    public GameObject playerCamera;
+
+    public GameObject activateButton;
     public GameObject blackTextBoxArea;
     public TextMeshProUGUI dialogueTextBox;
+    
 
     public override void OnStartAuthority()
     {
@@ -44,30 +51,49 @@ public class JB_PlayerUnit : NetworkBehaviour
         if (!this.hasAuthority) { return; }
         if (!canMove) { return; }
 
-        rb.velocity = new Vector2(directionX, rb.velocity.y);
+        //rb.velocity = new Vector2(directionX, rb.velocity.y);
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            isGrounded = false;
+            Jump();
         }
         
         
     }
 
+    public void Jump()
+    {
+        if (isGrounded)
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            isGrounded = false;
+        }
+        
+    }
+
+    public void Movement(int leftRight)
+    {
+        if (!canMove) { return; }
+
+        Debug.Log("testing press fuction");
+
+        float direction = leftRight * moveSpeed;
+
+        rb.velocity = new Vector2(direction, rb.velocity.y);
+    }
+
+    
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isGrounded = true;
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    Debug.Log("Trigger entered");
-    //    if(collision.gameObject.tag == "LeverTrigger")
-    //    {
-    //        collision.gameObject.GetComponent<JB_LeverTrigger>().bToggle = !collision.gameObject.GetComponent<JB_LeverTrigger>().bToggle;
-    //        Debug.Log("player hit lever trigger");
-    //    }
-    //}
+    
+
+   public void OnWaterClick()
+    {
+        OnWaterButton();
+
+    }
 }
