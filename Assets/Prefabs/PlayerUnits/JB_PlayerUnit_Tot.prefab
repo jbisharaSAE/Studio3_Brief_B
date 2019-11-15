@@ -1237,6 +1237,10 @@ MonoBehaviour:
   activateButton: {fileID: 3207848867525454869}
   blackTextBoxArea: {fileID: 5542344354454685259}
   dialogueTextBox: {fileID: 6604506623902889582}
+  bLevers: 
+  waterMovable: 
+  waterToggle: 
+  itemsPickedUp: 
 --- !u!61 &3104167123579421607
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1622,7 +1626,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4907567973117270241}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1632,7 +1636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -585.9962, y: 196.99878}
+  m_AnchoredPosition: {x: 585, y: 229}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.49999863, y: 0.5}
 --- !u!222 &5803578835650479315
@@ -1716,11 +1720,11 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7983981215809827897}
         m_MethodName: TogglePauseMenu
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 8824725110497583737}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0

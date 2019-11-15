@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 5815427318439678208}
   m_Layer: 0
   m_Name: JB_GroceryListManager
-  m_TagString: Untagged
+  m_TagString: GroceryManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

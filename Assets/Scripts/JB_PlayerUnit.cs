@@ -40,16 +40,16 @@ public class JB_PlayerUnit : NetworkBehaviour
     [HideInInspector] public List<bool> waterMovable = new List<bool>();
     [HideInInspector] public List<bool> waterToggle = new List<bool>();
 
-    [HideInInspector] public bool[] itemsPickedUp;
+    public bool[] itemsPickedUp;
     
 
     public override void OnStartAuthority()
     {
         if (!hasAuthority) { return; }
 
-        bLevers.Clear();
-        waterMovable.Clear();
-        waterToggle.Clear();
+        //bLevers.Clear();
+        //waterMovable.Clear();
+        //waterToggle.Clear();
         
 
         rb = GetComponent<Rigidbody2D>();
@@ -74,8 +74,13 @@ public class JB_PlayerUnit : NetworkBehaviour
 
         foreach (GameObject waterObj in waterObjects)
         {
-            waterMovable.Add(waterObj.GetComponent<JB_AdjustWater>().waterToMove);
+            
             waterToggle.Add(waterObj.GetComponent<JB_AdjustWater>().bToggle);
+        }
+
+        foreach(GameObject waterObj in waterObjects)
+        {
+            waterMovable.Add(waterObj.GetComponent<JB_AdjustWater>().waterToMove);
         }
 
     }
@@ -92,8 +97,14 @@ public class JB_PlayerUnit : NetworkBehaviour
 
         for (int i = 0; i < waterObjects.Length; ++i)
         {
-            waterObjects[i].GetComponent<JB_AdjustWater>().waterToMove = myWaterMovable[i];
+            //waterObjects[i].GetComponent<JB_AdjustWater>().waterToMove = myWaterMovable[i];
             waterObjects[i].GetComponent<JB_AdjustWater>().bToggle = myWaterToggle[i];
+        }
+
+        for (int i = 0; i < waterObjects.Length; ++i)
+        {
+            waterObjects[i].GetComponent<JB_AdjustWater>().waterToMove = myWaterMovable[i];
+            //waterObjects[i].GetComponent<JB_AdjustWater>().bToggle = myWaterToggle[i];
         }
     }
 
@@ -177,6 +188,7 @@ public class JB_PlayerUnit : NetworkBehaviour
         isGrounded = false;
     }
 
+   
     public void OnWaterClick()
     {
         OnWaterButton();

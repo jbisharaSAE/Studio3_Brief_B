@@ -10,6 +10,7 @@ TagManager:
   - PressurePlate
   - Item
   - WaterTrigger
+  - GroceryManager
   layers:
   - Default
   - TransparentFX
