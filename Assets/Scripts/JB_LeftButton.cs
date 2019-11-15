@@ -12,12 +12,15 @@ public class JB_LeftButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        playerUnitScript.Movement(-1);
+        playerUnitScript.moving = true;
+        playerUnitScript.leftOrRight = -1;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        playerUnitScript.Movement(0);
+        playerUnitScript.leftOrRight = 0;
+        playerUnitScript.moving = false;
+        
     }
 
    

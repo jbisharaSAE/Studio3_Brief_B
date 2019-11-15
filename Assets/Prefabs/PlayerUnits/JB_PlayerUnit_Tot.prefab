@@ -1228,9 +1228,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroType: 1
   moveSpeed: 10
-  jumpForce: 8
-  isGrounded: 0
+  jumpForce: 7
   canMove: 0
+  moving: 0
+  leftOrRight: 0
   playerCamera: {fileID: 8904884916114565111}
   userControls: {fileID: 5926982211109646743}
   activateButton: {fileID: 3207848867525454869}
