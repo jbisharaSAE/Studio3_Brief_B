@@ -8,10 +8,12 @@ public class JB_PlayerData
 {
     public int heroType;
     public bool movable;
-    public bool[] levers;
-    public bool[] waterMovables;
-    public bool[] waterToggles;
-    public bool[] itemsPickedUp;
+
+    public List<bool> levers = new List<bool>();
+    public List<bool> waterMovables = new List<bool>();
+    public List<bool> waterToggles = new List<bool>();
+    public List<bool> itemsPickedUp = new List<bool>();
+
     public float[] position;
     
 
@@ -22,29 +24,34 @@ public class JB_PlayerData
 
         // initialising arrays
         position = new float[2];
-        levers = new bool[player.bLevers.Count];
-        waterMovables = new bool[player.waterMovable.Count];
-        waterToggles = new bool[player.waterToggle.Count];
-        itemsPickedUp = new bool[player.itemsPickedUp.Length];
+        //levers.Clear();
+        //waterMovables.Clear();
+        //waterToggles.Clear();
+        //itemsPickedUp.Clear();
+
+        //levers = new bool[player.bLevers.Count];
+        //waterMovables = new bool[player.waterMovable.Count];
+        //waterToggles = new bool[player.waterToggle.Count];
+        //itemsPickedUp = new bool[player.itemsPickedUp.Length];
 
 
         position[0] = player.transform.position.x;
         position[1] = player.transform.position.y;
 
-        for(int i = 0; i < levers.Length; ++i)
+        for(int i = 0; i < player.bLevers.Count; ++i)
         {
-            levers[i] = player.bLevers[i];
+            levers.Add(player.bLevers[i]);
         }
 
-        for(int i = 0; i < itemsPickedUp.Length; ++i)
+        for(int i = 0; i < player.itemsPickedUp.Length; ++i)
         {
-            itemsPickedUp[i] = player.itemsPickedUp[i];
+            itemsPickedUp.Add(player.itemsPickedUp[i]);
         }
 
-        for(int i = 0; i < waterMovables.Length; ++i)
+        for(int i = 0; i < player.waterMovable.Count; ++i)
         {
-            waterMovables[i] = player.waterMovable[i];
-            waterToggles[i] = player.waterToggle[i];
+            waterMovables.Add(player.waterMovable[i]);
+            waterToggles.Add(player.waterToggle[i]);
         }
 
     }

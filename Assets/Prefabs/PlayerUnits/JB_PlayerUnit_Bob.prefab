@@ -1389,13 +1389,18 @@ MonoBehaviour:
   heroType: 0
   moveSpeed: 10
   jumpForce: 100
-  isGrounded: 0
   canMove: 0
+  moving: 0
+  leftOrRight: 0
   playerCamera: {fileID: 7586672128422464048}
   userControls: {fileID: 9146734978948437553}
   activateButton: {fileID: 6830060264232311186}
   blackTextBoxArea: {fileID: 8123437409861137660}
   dialogueTextBox: {fileID: 3945649973456021364}
+  bLevers: 
+  waterMovable: 
+  waterToggle: 
+  itemsPickedUp: 
 --- !u!61 &3104167123579421607
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1736,7 +1741,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -586, y: 197}
+  m_AnchoredPosition: {x: 585, y: 229}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.49999863, y: 0.5}
 --- !u!222 &1199948954171416242

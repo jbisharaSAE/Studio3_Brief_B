@@ -15,7 +15,7 @@ public class JB_GroceryManager : MonoBehaviour
     public GameObject blackTextBoxArea;
     public TextMeshProUGUI alertText;
 
-    private bool[] itemPickedUp;
+    public bool[] itemPickedUp;
 
     // a variable to determine what level the player is in
     private int currentLevel = 1;
