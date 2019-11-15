@@ -9,6 +9,7 @@ TagManager:
   - LeverTrigger
   - PressurePlate
   - Item
+  - WaterTrigger
   layers:
   - Default
   - TransparentFX

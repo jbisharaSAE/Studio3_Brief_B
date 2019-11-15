@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using TMPro;
-
+using System;
 
 public class JB_PlayerUnit : NetworkBehaviour
 {
@@ -18,8 +18,11 @@ public class JB_PlayerUnit : NetworkBehaviour
     private Rigidbody2D rb;
     private float directionX;
 
-    public bool isGrounded;
-    public bool canMove = false;
+    private bool isGrounded;
+
+    [HideInInspector] public bool canMove = false;    // determines if this player unit is allowed to move
+    [HideInInspector] public bool moving = false;     // used to tell if player unit is moving
+    [HideInInspector] public int leftOrRight;         // int used to determine which direction the player is moving
 
     public GameObject playerCamera;
     public GameObject userControls;
@@ -27,16 +30,76 @@ public class JB_PlayerUnit : NetworkBehaviour
     public GameObject activateButton;
     public GameObject blackTextBoxArea;
     public TextMeshProUGUI dialogueTextBox;
+
+    // data to save for scene
+    private GameObject[] leverObjects;
+    private GameObject[] waterObjects;
+
+    [HideInInspector] public List<bool> bLevers = new List<bool>();
+
+    [HideInInspector] public List<bool> waterMovable = new List<bool>();
+    [HideInInspector] public List<bool> waterToggle = new List<bool>();
+
+    [HideInInspector] public bool[] itemsPickedUp;
     
 
     public override void OnStartAuthority()
     {
         if (!hasAuthority) { return; }
 
+        bLevers.Clear();
+        waterMovable.Clear();
+        waterToggle.Clear();
+        
+
         rb = GetComponent<Rigidbody2D>();
         playerCamera.SetActive(true);
         playerCamera.transform.parent = null;
         userControls.SetActive(true);
+
+        
+        // 11 items total in game
+        itemsPickedUp = new bool[11];
+    }
+
+    public void FindSceneItems()
+    {
+        leverObjects = GameObject.FindGameObjectsWithTag("LeverTrigger");
+        waterObjects = GameObject.FindGameObjectsWithTag("WaterTrigger");
+
+        foreach (GameObject leverObj in leverObjects)
+        {
+            bLevers.Add(leverObj.GetComponent<JB_LeverTrigger>().bToggle);
+        }
+
+        foreach (GameObject waterObj in waterObjects)
+        {
+            waterMovable.Add(waterObj.GetComponent<JB_AdjustWater>().waterToMove);
+            waterToggle.Add(waterObj.GetComponent<JB_AdjustWater>().bToggle);
+        }
+
+    }
+
+    public void LoadSceneItems(List<bool> myLevers, List<bool> myWaterMovable, List<bool> myWaterToggle)
+    {
+        leverObjects = GameObject.FindGameObjectsWithTag("LeverTrigger");
+        waterObjects = GameObject.FindGameObjectsWithTag("WaterTrigger");
+
+        for(int i = 0; i < leverObjects.Length; ++i)
+        {
+            leverObjects[i].GetComponent<JB_LeverTrigger>().bToggle = myLevers[i];
+        }
+
+        for (int i = 0; i < waterObjects.Length; ++i)
+        {
+            waterObjects[i].GetComponent<JB_AdjustWater>().waterToMove = myWaterMovable[i];
+            waterObjects[i].GetComponent<JB_AdjustWater>().bToggle = myWaterToggle[i];
+        }
+    }
+
+    public void AddItem(int index)
+    {
+        itemsPickedUp[index] = true;
     }
 
     // Update is called once per frame
@@ -59,8 +122,26 @@ public class JB_PlayerUnit : NetworkBehaviour
         {
             Jump();
         }
+
+        if (moving)
+        {
+            Movement(leftOrRight);
+        }
+        else
+        {
+            StopMovement();
+        }
         
-        
+    }
+
+    private void StopMovement()
+    {
+        if (isGrounded)
+        {
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
+
     }
 
     public void Jump()
@@ -91,9 +172,12 @@ public class JB_PlayerUnit : NetworkBehaviour
         isGrounded = true;
     }
 
-    
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isGrounded = false;
+    }
 
-   public void OnWaterClick()
+    public void OnWaterClick()
     {
         OnWaterButton();
 

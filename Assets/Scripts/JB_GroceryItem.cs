@@ -10,12 +10,13 @@ public class JB_GroceryItem : MonoBehaviour
 
     public GroceryList groceryType;
 
+    private int numConversion;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        numConversion = (int)groceryType;
     }
 
     // Update is called once per frame
@@ -35,8 +36,10 @@ public class JB_GroceryItem : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            collision.gameObject.GetComponent<JB_PlayerUnit>().AddItem(numConversion);
+
             onPickup(groceryType);
-            //managerScript.SendMessage("SwapGreenTick", groceryType);
+            
             Destroy(gameObject);
         }
     }
