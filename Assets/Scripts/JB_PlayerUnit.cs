@@ -60,6 +60,10 @@ public class JB_PlayerUnit : NetworkBehaviour
         
         // 11 items total in game
         itemsPickedUp = new bool[11];
+
+        // hide host / join buttons
+        GameObject go = GameObject.FindGameObjectWithTag("MatchSystem");
+        go.SetActive(false);
     }
 
     public void FindSceneItems()
