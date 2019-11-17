@@ -19,6 +19,7 @@ public class JB_DialogueManager : MonoBehaviour
     public GameObject dialogueSystem;
 
     private Queue<string> sentences;
+    private Queue<string> names;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,53 @@ public class JB_DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", true);
 
-        switch (dialogue.name)
+        // clearing current queues to make sure we dont repeat previous dialogues
+        names.Clear();
+        sentences.Clear();
+
+        // initialising values from dialogue class into queue variable
+        foreach(string sentence in dialogue.sentences)
+        {
+            sentences.Enqueue(sentence);
+            
+        }
+        
+        // initialising values from dialogue class into queue variable
+        foreach (string name in dialogue.names)
+        {
+            names.Enqueue(name);
+        }
+
+        // begin telling story, using continue button to go thru next dialogue
+        DisplayNextSentence();
+    }
+
+    public void DisplayNextSentence()
+    {
+        // end dialogue
+        if(sentences.Count < 1)
+        {
+            EndDialogue();
+
+            return;
+
+        }
+
+        string sentence = sentences.Dequeue();
+        string name = names.Dequeue();
+
+        nameText.text = name;
+
+        DisplayCharacterSprite(name);
+
+        StopAllCoroutines();
+        StartCoroutine(CoTypeSentence(sentence));
+
+    }
+
+    private void DisplayCharacterSprite(string name)
+    {
+        switch (name)
         {
             case "Bob":
                 characterImage.sprite = bob;
@@ -41,39 +88,6 @@ public class JB_DialogueManager : MonoBehaviour
             default:
                 break;
         }
-
-        //dialogueSystem.SetActive(true);
-
-        nameText.text = dialogue.name;
-
-        sentences.Clear();
-
-        foreach(string sentence in dialogue.sentences)
-        {
-            sentences.Enqueue(sentence);
-
-        }
-
-        DisplayNextSentence();
-    }
-
-    public void DisplayNextSentence()
-    {
-        Debug.Log(sentences.Count);
-
-        if(sentences.Count < 1)
-        {
-            EndDialogue();
-
-            return;
-
-        }
-
-        string sentence = sentences.Dequeue();
-        //dialogueText.text = sentence;
-
-        StopAllCoroutines();
-        StartCoroutine(CoTypeSentence(sentence));
 
     }
 
@@ -92,7 +106,6 @@ public class JB_DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
-        //dialogueSystem.SetActive(false);
-        Debug.Log("DID WE REACH END");
+        
     }
 }

@@ -801,11 +801,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Tot
+    names:
+    - 
+    - 
+    - 
     sentences:
-    - Are you kidding me
-    - I Fucking hate vegans
-    - A Carrot
+    - 
+    - 
+    - 
 --- !u!1 &415412451329103098
 GameObject:
   m_ObjectHideFlags: 0
