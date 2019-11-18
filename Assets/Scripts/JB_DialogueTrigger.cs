@@ -10,4 +10,13 @@ public class JB_DialogueTrigger : MonoBehaviour
     {
         FindObjectOfType<JB_DialogueManager>().StartDialogue(dialogue);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            TriggerDialogue();
+        }
+        
+    }
 }
