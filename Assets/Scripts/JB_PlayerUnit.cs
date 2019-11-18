@@ -142,10 +142,10 @@ public class JB_PlayerUnit : NetworkBehaviour
         {
             Movement(leftOrRight);
         }
-        else
-        {
-            StopMovement();
-        }
+        //else
+        //{
+        //    StopMovement();
+        //}
         
     }
 
@@ -178,6 +178,8 @@ public class JB_PlayerUnit : NetworkBehaviour
         float direction = leftRight * moveSpeed;
 
         rb.velocity = new Vector2(direction, rb.velocity.y);
+
+        moving = false;
     }
 
     
