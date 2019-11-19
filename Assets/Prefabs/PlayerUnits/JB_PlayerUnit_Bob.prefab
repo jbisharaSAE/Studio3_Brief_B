@@ -183,8 +183,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420177324223713463}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.41, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.79, z: 0}
+  m_LocalScale: {x: 0.675, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3891678552235245515}
   m_RootOrder: 0
@@ -1283,7 +1283,7 @@ Transform:
   m_GameObject: {fileID: 3445992209962978995}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 8372280006879673702}
   - {fileID: 8155426436051457925}
@@ -1330,7 +1330,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: c61ae18338bba2a408785bf23b5026c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 983931b929e2e0d488b1db8c132eda77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1414,7 +1414,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.54}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1425,7 +1425,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 3.64, y: 4}
   m_EdgeRadius: 0
 --- !u!50 &1210309330963668005
 Rigidbody2D:
@@ -2831,6 +2831,7 @@ GameObject:
   - component: {fileID: 8155426436051457925}
   - component: {fileID: 4897581153354505624}
   - component: {fileID: 4322374256472549927}
+  - component: {fileID: 8912486821313882145}
   m_Layer: 18
   m_Name: Camera
   m_TagString: Untagged
@@ -2912,6 +2913,23 @@ MonoBehaviour:
   rightClamp: 0
   topClamp: 0
   bottomClamp: 0
+--- !u!114 &8912486821313882145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7586672128422464048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 25a7256973681254ca01d7802982efe3, type: 2}
+  isGlobal: 0
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &8123437409861137660
 GameObject:
   m_ObjectHideFlags: 0

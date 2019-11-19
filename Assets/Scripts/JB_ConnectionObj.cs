@@ -18,6 +18,9 @@ public class JB_ConnectionObj : NetworkBehaviour
     public GameObject playerBobPrefab;
     public GameObject playerTotPrefab;
 
+    // spawn point for player units
+    private Transform playerSpawnPoint;
+
     // buttons for hero selection, to be disabled when player makes selection
     public Button bobButton;
     public Button totButton;
@@ -43,6 +46,8 @@ public class JB_ConnectionObj : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerSpawnPoint = GameObject.Find("PlayerUnitSpawnPoint").GetComponent<Transform>();
+
         if (!this.isLocalPlayer) { return; }
 
         // begin selection phase
@@ -50,7 +55,7 @@ public class JB_ConnectionObj : NetworkBehaviour
 
         mainCam = Camera.main;
 
-        mainCamWp = GameObject.FindGameObjectWithTag("CameraWP").GetComponent<Transform>();
+        //mainCamWp = GameObject.FindGameObjectWithTag("CameraWP").GetComponent<Transform>();
 
     }
 
@@ -181,18 +186,18 @@ public class JB_ConnectionObj : NetworkBehaviour
         
 
         // 12 units to the right of starting spawn
-        Vector2 spawnPos = new Vector2(31f, -0.1f);
+        //Vector2 spawnPos = new Vector2(31f, -0.1f);
 
         // spawn correct unit type based off player button click from main menu
         switch (hType)
         {
             case HeroType.Bob:
-                playerUnit = Instantiate(playerBobPrefab, spawnPos, Quaternion.identity);
+                playerUnit = Instantiate(playerBobPrefab, playerSpawnPoint.position, Quaternion.identity);
                 NetworkServer.SpawnWithClientAuthority(playerUnit, connectionToClient);
                 RpcSpawnCharacter(playerUnit);
                 break;
             case HeroType.Tot:
-                playerUnit = Instantiate(playerTotPrefab, spawnPos, Quaternion.identity);
+                playerUnit = Instantiate(playerTotPrefab, playerSpawnPoint.position, Quaternion.identity);
                 NetworkServer.SpawnWithClientAuthority(playerUnit, connectionToClient);
                 RpcSpawnCharacter(playerUnit);
                 break;

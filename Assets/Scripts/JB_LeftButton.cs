@@ -19,7 +19,7 @@ public class JB_LeftButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public void OnPointerUp(PointerEventData eventData)
     {
         playerUnitScript.leftOrRight = 0;
-        playerUnitScript.moving = false;
+        //playerUnitScript.moving = false;
         
     }
 
