@@ -9,6 +9,7 @@ using TMPro;
 
 public class JB_GroceryManager : MonoBehaviour
 {
+    
     public Image[] crossTickImg;
     public Sprite greenTick;
 
@@ -20,10 +21,15 @@ public class JB_GroceryManager : MonoBehaviour
     // a variable to determine what level the player is in
     private int currentLevel = 1;
 
+    public static int numberOfItems;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        itemPickedUp = new bool[11]; // one for each grocery
+        alertText.text = "Please find remaining items on the list";
+        numberOfItems = 9;
+        itemPickedUp = new bool[numberOfItems]; // one for each grocery
     }
 
     private void OnEnable()
@@ -61,6 +67,8 @@ public class JB_GroceryManager : MonoBehaviour
         {
             // alert player to find all items
             StartCoroutine(CoAlertPlayer());
+
+            
         }
 
     }
@@ -69,37 +77,10 @@ public class JB_GroceryManager : MonoBehaviour
     {
         // turning on and off the alert text box area
         blackTextBoxArea.SetActive(true);
-        alertText.text = "Please find remaining items on the list";
         yield return new WaitForSeconds(3.5f);
         blackTextBoxArea.SetActive(false);
-        alertText.text = "";
+
     }
-
-    //private void OnLevelWasLoaded(int level)
-    //{
-    //    // changing the value of current level every time we change scenes
-
-    //    switch (level)
-    //    {
-    //        // main menu
-    //        case 0:
-    //            currentLevel = 0;
-    //            break;
-    //        // level one
-    //        case 1:
-    //            currentLevel = 1;
-    //            break;
-    //        // level two
-    //        case 2:
-    //            currentLevel = 2;
-    //            break;
-    //        // level three
-    //        case 3:
-    //            currentLevel = 3;
-    //            break;
-    //    }
-
-    //}
 
     private bool RunMyForLoop()
     {

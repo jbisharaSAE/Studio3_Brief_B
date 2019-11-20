@@ -86,6 +86,7 @@ public class JB_DialogueManager : MonoBehaviour
                 characterImage.sprite = tot;
                 break;
             default:
+                characterImage.sprite = null;
                 break;
         }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 public class JB_PlayerUnit : NetworkBehaviour
 {
@@ -16,9 +17,7 @@ public class JB_PlayerUnit : NetworkBehaviour
     public float jumpForce = 2f;
 
     private Rigidbody2D rb;
-    private float directionX;
-
-    private bool isGrounded;
+    public bool isGrounded;
 
     [HideInInspector] public bool canMove = false;    // determines if this player unit is allowed to move
     [HideInInspector] public bool moving = false;     // used to tell if player unit is moving
@@ -47,11 +46,6 @@ public class JB_PlayerUnit : NetworkBehaviour
     {
         if (!hasAuthority) { return; }
 
-        //bLevers.Clear();
-        //waterMovable.Clear();
-        //waterToggle.Clear();
-        
-
         rb = GetComponent<Rigidbody2D>();
         playerCamera.SetActive(true);
         playerCamera.transform.parent = null;
@@ -59,13 +53,19 @@ public class JB_PlayerUnit : NetworkBehaviour
 
         
         // 11 items total in game
-        itemsPickedUp = new bool[11];
+        itemsPickedUp = new bool[JB_GroceryManager.numberOfItems];
 
         // hide host / join buttons
         GameObject go = GameObject.FindGameObjectWithTag("MatchSystem");
         go.SetActive(false);
+
+        // find grocery button
+        GameObject listButton = GameObject.FindGameObjectWithTag("ListButton");
+        listButton.GetComponent<Image>().enabled = true;
+        listButton.GetComponent<Button>().enabled = true;
     }
 
+    // used when saving game
     public void FindSceneItems()
     {
         leverObjects = GameObject.FindGameObjectsWithTag("LeverTrigger");
@@ -89,6 +89,7 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     }
 
+    // used when loading game
     public void LoadSceneItems(List<bool> myLevers, List<bool> myWaterMovable, List<bool> myWaterToggle)
     {
         leverObjects = GameObject.FindGameObjectsWithTag("LeverTrigger");
@@ -101,14 +102,14 @@ public class JB_PlayerUnit : NetworkBehaviour
 
         for (int i = 0; i < waterObjects.Length; ++i)
         {
-            //waterObjects[i].GetComponent<JB_AdjustWater>().waterToMove = myWaterMovable[i];
+            
             waterObjects[i].GetComponent<JB_AdjustWater>().bToggle = myWaterToggle[i];
         }
 
         for (int i = 0; i < waterObjects.Length; ++i)
         {
             waterObjects[i].GetComponent<JB_AdjustWater>().waterToMove = myWaterMovable[i];
-            //waterObjects[i].GetComponent<JB_AdjustWater>().bToggle = myWaterToggle[i];
+            
         }
     }
 
@@ -123,7 +124,7 @@ public class JB_PlayerUnit : NetworkBehaviour
         if(!this.hasAuthority) { return; }
         if (!canMove) { return; }
 
-        directionX = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        //directionX = Input.GetAxisRaw("Horizontal") * moveSpeed;
     }
 
     private void FixedUpdate()

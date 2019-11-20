@@ -9,7 +9,6 @@ public class JB_Water : MonoBehaviour
     private void Start()
     {
         water = GetComponent<BuoyancyEffector2D>();
-
     }
 
     private void Update()
@@ -25,6 +24,28 @@ public class JB_Water : MonoBehaviour
             {
                 // if bob hits the water, disable collider
                 Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), this.GetComponent<BoxCollider2D>());
+            }
+            
+        }
+        else if(collision.gameObject.tag == "Player")
+        {
+            
+            if (collision.gameObject.GetComponent<JB_PlayerUnit>().heroType == HeroType.Tot)
+            {
+                // if tot hits the water, let her have the ability to jump
+                collision.gameObject.GetComponent<JB_PlayerUnit>().isGrounded = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            if (collision.gameObject.GetComponent<JB_PlayerUnit>().heroType == HeroType.Tot)
+            {
+                // when tot jumps, disable boolean so player cannot double jump
+                collision.gameObject.GetComponent<JB_PlayerUnit>().isGrounded = false;
             }
         }
     }

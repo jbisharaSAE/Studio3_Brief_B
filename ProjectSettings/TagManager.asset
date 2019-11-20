@@ -12,6 +12,7 @@ TagManager:
   - WaterTrigger
   - GroceryManager
   - MatchSystem
+  - ListButton
   layers:
   - Default
   - TransparentFX
