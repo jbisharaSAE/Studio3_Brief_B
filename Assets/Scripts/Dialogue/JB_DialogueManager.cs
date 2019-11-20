@@ -24,7 +24,8 @@ public class JB_DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sentences = new Queue<string>();   
+        sentences = new Queue<string>();
+        names = new Queue<string>();
     }
 
     public void StartDialogue(JB_Dialogue dialogue)
@@ -36,19 +37,15 @@ public class JB_DialogueManager : MonoBehaviour
         sentences.Clear();
 
         // initialising values from dialogue class into queue variable
-        foreach(string sentence in dialogue.sentences)
+
+        for (int i = 0; i < dialogue.interactions.Length; ++i)
         {
-            sentences.Enqueue(sentence);
-            
+            names.Enqueue(dialogue.interactions[i].name);
+            sentences.Enqueue(dialogue.interactions[i].sentences);
+            characterImage.sprite = dialogue.interactions[i].characterSprite;
         }
         
-        // initialising values from dialogue class into queue variable
-        foreach (string name in dialogue.names)
-        {
-            names.Enqueue(name);
-        }
-
-        // begin telling story, using continue button to go thru next dialogue
+        
         DisplayNextSentence();
     }
 
@@ -68,29 +65,29 @@ public class JB_DialogueManager : MonoBehaviour
 
         nameText.text = name;
 
-        DisplayCharacterSprite(name);
+        //DisplayCharacterSprite(name);
 
         StopAllCoroutines();
         StartCoroutine(CoTypeSentence(sentence));
 
     }
 
-    private void DisplayCharacterSprite(string name)
-    {
-        switch (name)
-        {
-            case "Bob":
-                characterImage.sprite = bob;
-                break;
-            case "Tot":
-                characterImage.sprite = tot;
-                break;
-            default:
-                characterImage.sprite = null;
-                break;
-        }
+    //private void DisplayCharacterSprite(string name)
+    //{
+    //    switch (name)
+    //    {
+    //        case "Bob":
+    //            characterImage.sprite = bob;
+    //            break;
+    //        case "Tot":
+    //            characterImage.sprite = tot;
+    //            break;
+    //        default:
+    //            characterImage.sprite = null;
+    //            break;
+    //    }
 
-    }
+    //}
 
     IEnumerator CoTypeSentence(string sentence)
     {

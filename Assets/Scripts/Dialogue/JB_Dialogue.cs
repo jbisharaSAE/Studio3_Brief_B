@@ -1,14 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+[CreateAssetMenu]
+public class JB_Dialogue : ScriptableObject
+{
+    public dialogueData[] interactions;
+}
+
 
 [System.Serializable]
-public class JB_Dialogue
+public struct dialogueData
 {
-    [Tooltip("Bob or Tot only")]
-    public string[] names;
-
-    [TextArea(3,10)]
-    public string[] sentences;
-
+    public Sprite characterSprite; 
+    public string name;
+    [TextArea(3, 10)]
+    public string sentences;
 }
+
