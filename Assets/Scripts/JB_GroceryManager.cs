@@ -28,7 +28,7 @@ public class JB_GroceryManager : MonoBehaviour
     void Start()
     {
         alertText.text = "Please find remaining items on the list";
-        numberOfItems = 9;
+        numberOfItems = 8;
         itemPickedUp = new bool[numberOfItems]; // one for each grocery
     }
 

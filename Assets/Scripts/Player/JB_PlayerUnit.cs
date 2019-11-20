@@ -20,7 +20,6 @@ public class JB_PlayerUnit : NetworkBehaviour
     public bool isGrounded;
 
     [HideInInspector] public bool canMove = false;    // determines if this player unit is allowed to move
-    [HideInInspector] public bool moving = false;     // used to tell if player unit is moving
     [HideInInspector] public int leftOrRight;         // int used to determine which direction the player is moving
 
     public GameObject playerCamera;
@@ -52,7 +51,7 @@ public class JB_PlayerUnit : NetworkBehaviour
         userControls.SetActive(true);
 
         
-        // 11 items total in game
+        // 9 items total in game
         itemsPickedUp = new bool[JB_GroceryManager.numberOfItems];
 
         // hide host / join buttons
@@ -139,15 +138,14 @@ public class JB_PlayerUnit : NetworkBehaviour
             Jump();
         }
 
-        if (moving)
-        {
-            Movement(leftOrRight);
-        }
+
+        Movement(leftOrRight);
+
         //else
         //{
         //    StopMovement();
         //}
-        
+
     }
 
     private void StopMovement()
@@ -174,13 +172,23 @@ public class JB_PlayerUnit : NetworkBehaviour
     {
         if (!canMove) { return; }
 
-        Debug.Log("testing press fuction");
+        //Debug.Log("testing press fuction");
 
         float direction = leftRight * moveSpeed;
 
         rb.velocity = new Vector2(direction, rb.velocity.y);
-
-        moving = false;
+        
+        // facing right
+        if(rb.velocity.x > 0.9f)
+        {
+            transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+        }
+        // facing left
+        else if (rb.velocity.x < -0.9f)
+        {
+            transform.localScale = new Vector3(-0.5f, 0.5f, 1f);
+        }
+        
     }
 
     

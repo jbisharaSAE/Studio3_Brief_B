@@ -12,13 +12,13 @@ public class JB_RightButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     public void OnPointerDown(PointerEventData eventData)
     {
-
-        playerUnitScript.moving = true;
+        Debug.Log("button held");
         playerUnitScript.leftOrRight = 1;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        Debug.Log("button released");
         playerUnitScript.leftOrRight = 0;
         //playerUnitScript.moving = false;
         

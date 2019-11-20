@@ -46,7 +46,7 @@ public class JB_ConnectionObj : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerSpawnPoint = GameObject.Find("PlayerUnitSpawnPoint").GetComponent<Transform>();
+        playerSpawnPoint = GameObject.Find("JB_PlayerUnitSpawnPoint").GetComponent<Transform>();
 
         if (!this.isLocalPlayer) { return; }
 
