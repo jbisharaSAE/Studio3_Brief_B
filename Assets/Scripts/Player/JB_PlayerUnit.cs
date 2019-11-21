@@ -62,6 +62,7 @@ public class JB_PlayerUnit : NetworkBehaviour
         GameObject listButton = GameObject.FindGameObjectWithTag("ListButton");
         listButton.GetComponent<Image>().enabled = true;
         listButton.GetComponent<Button>().enabled = true;
+        listButton.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
     }
 
     // used when saving game

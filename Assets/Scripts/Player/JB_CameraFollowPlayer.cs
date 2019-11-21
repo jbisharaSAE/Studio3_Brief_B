@@ -18,6 +18,8 @@ public class JB_CameraFollowPlayer : MonoBehaviour
         {
 
             transform.position = new Vector3(target.transform.position.x, target.transform.position.y, -10f);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, leftClamp, rightClamp),
+                                            Mathf.Clamp(transform.position.y, bottomClamp, topClamp), -10f);
             
         }
             
