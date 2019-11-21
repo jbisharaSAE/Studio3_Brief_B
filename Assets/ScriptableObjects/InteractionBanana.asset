@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b553c70284f84f445b2960e306343280, type: 3}
+  m_Name: InteractionBanana
+  m_EditorClassIdentifier: 
+  interactions:
+  - characterSprite: {fileID: 21300000, guid: 4fe2d705b89e5444584cbf77539acd9f, type: 3}
+    name: Tot
+    sentences: Well looks like this Banana is still fresh in this current condition
+      of the world surprisingly.
+  - characterSprite: {fileID: 21300000, guid: 983931b929e2e0d488b1db8c132eda77, type: 3}
+    name: Bob
+    sentences: You know what a certain shape once said to me Tot?
+  - characterSprite: {fileID: 21300000, guid: 4fe2d705b89e5444584cbf77539acd9f, type: 3}
+    name: Tot
+    sentences: "Please don\u2019t tell me another bad pun."
+  - characterSprite: {fileID: 21300000, guid: 983931b929e2e0d488b1db8c132eda77, type: 3}
+    name: Bob
+    sentences: On a traffic light green means go and yellow means yield, but on a
+      banana it's just the opposite. Green means hold on, yellow means go ahead, and
+      red means where the hell did you get that banana at.
