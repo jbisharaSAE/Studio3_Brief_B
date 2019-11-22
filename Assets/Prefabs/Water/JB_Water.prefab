@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2922914272723096286}
   - component: {fileID: 2922914272723096287}
   - component: {fileID: 2922914272723096280}
+  - component: {fileID: 3189258325727710037}
   m_Layer: 4
   m_Name: JB_Water
   m_TagString: Untagged
@@ -72,7 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c61ae18338bba2a408785bf23b5026c7, type: 3}
+  m_Sprite: {fileID: -1297291043412680702, guid: 3a2f1d59bbb9f214796c4015199ff065,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +102,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -140,3 +142,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b27140c76b54c42bcbcbc8d836d477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &3189258325727710037
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922914272723096281}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d158291ff6a9afd44a4eab4d58e40739, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
