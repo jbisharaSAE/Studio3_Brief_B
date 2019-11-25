@@ -134,10 +134,10 @@ public class JB_PlayerUnit : NetworkBehaviour
 
         //rb.velocity = new Vector2(directionX, rb.velocity.y);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            Jump();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        //{
+        //    Jump();
+        //}
 
 
         Movement(leftOrRight);
@@ -161,6 +161,7 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     public void Jump()
     {
+        Debug.LogWarning("Jump activated!");
         if (isGrounded)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -192,8 +193,29 @@ public class JB_PlayerUnit : NetworkBehaviour
         
     }
 
-    
-    
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Water")
+        {
+            Debug.LogWarning("hit the water!");
+            if (heroType == HeroType.Bob)
+            {
+                // if bob hits the water, disable collider
+                Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), this.GetComponent<BoxCollider2D>());
+            }
+            else if (heroType == HeroType.Tot)
+            {
+                Debug.Log("Tot");
+                // if tot hits the water, let her have the ability to jump
+                isGrounded = true;
+            }
+
+        }
+        
+    }
+
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isGrounded = true;
