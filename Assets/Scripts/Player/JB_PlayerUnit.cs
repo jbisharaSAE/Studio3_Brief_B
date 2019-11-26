@@ -17,6 +17,7 @@ public class JB_PlayerUnit : NetworkBehaviour
     public float jumpForce = 2f;
 
     private Rigidbody2D rb;
+    private float groundRadius = 0.15f;
     public bool isGrounded;
 
     [HideInInspector] public bool canMove = false;    // determines if this player unit is allowed to move
@@ -39,7 +40,9 @@ public class JB_PlayerUnit : NetworkBehaviour
     [HideInInspector] public List<bool> waterToggle = new List<bool>();
 
     public bool[] itemsPickedUp;
-    
+    public Transform groundCheck;
+    public LayerMask whatIsGround;
+
 
     public override void OnStartAuthority()
     {
@@ -139,6 +142,7 @@ public class JB_PlayerUnit : NetworkBehaviour
         //    Jump();
         //}
 
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
         Movement(leftOrRight);
 
