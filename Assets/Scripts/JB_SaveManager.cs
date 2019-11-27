@@ -142,5 +142,6 @@ public class JB_SaveManager : MonoBehaviour
         toggle = !toggle;
 
         menu.SetActive(toggle);
+
     }
 }

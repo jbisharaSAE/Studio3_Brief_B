@@ -135,21 +135,10 @@ public class JB_PlayerUnit : NetworkBehaviour
         if (!this.hasAuthority) { return; }
         if (!canMove) { return; }
 
-        //rb.velocity = new Vector2(directionX, rb.velocity.y);
-
-        //if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        //{
-        //    Jump();
-        //}
-
+        // checks if player is grounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
         Movement(leftOrRight);
-
-        //else
-        //{
-        //    StopMovement();
-        //}
 
     }
 
@@ -187,11 +176,13 @@ public class JB_PlayerUnit : NetworkBehaviour
         // facing right
         if(rb.velocity.x > 0.9f)
         {
+            Debug.Log("x velocity = " + rb.velocity.x);
             transform.localScale = new Vector3(0.5f, 0.5f, 1f);
         }
         // facing left
         else if (rb.velocity.x < -0.9f)
         {
+            Debug.Log("x velocity = " + rb.velocity.x);
             transform.localScale = new Vector3(-0.5f, 0.5f, 1f);
         }
         
@@ -219,21 +210,40 @@ public class JB_PlayerUnit : NetworkBehaviour
     }
 
 
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        isGrounded = true;
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        isGrounded = false;
-    }
-
-   
     public void OnWaterClick()
     {
         OnWaterButton();
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        Vector3 hit = col.contacts[0].normal;
+
+        CollideWallTest(hit);
+    }
+
+    void OnCollisionStay2D(Collision2D col)
+    {
+
+        Vector3 hit = col.contacts[0].normal;
+
+        CollideWallTest(hit);
+
+    }
+    private void CollideWallTest(Vector3 hit)
+    {
+        if (hit.x == -1 || hit.y == -1)
+        {
+            // left direction
+            //rb.velocity = Vector2.zero;
+            leftOrRight = 0;
+        }
+        else if (hit.x == 1 || hit.y == -1)
+        {
+            // right direction
+            //rb.velocity = Vector2.zero;
+            leftOrRight = 0;
+        }
     }
 }
