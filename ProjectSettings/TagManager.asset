@@ -57,6 +57,9 @@ TagManager:
   - name: Enviromental assets
     uniqueID: 2059882525
     locked: 0
+  - name: Water
+    uniqueID: 816635989
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
