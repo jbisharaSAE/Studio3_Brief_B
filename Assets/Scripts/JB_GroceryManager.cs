@@ -62,6 +62,7 @@ public class JB_GroceryManager : MonoBehaviour
         if (RunMyForLoop())
         {
             // level complete
+            EndGame();
         }
         else
         {
@@ -71,6 +72,12 @@ public class JB_GroceryManager : MonoBehaviour
             
         }
 
+    }
+
+    private void EndGame()
+    {
+        blackTextBoxArea.SetActive(true);
+        alertText.text = "Congratulations, you found all the items! :)";
     }
 
     IEnumerator CoAlertPlayer()

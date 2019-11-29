@@ -20,12 +20,14 @@ public class JB_DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
     private Queue<string> names;
+    private Queue<Sprite> characterImg;
 
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
         names = new Queue<string>();
+        characterImg = new Queue<Sprite>();
     }
 
     public void StartDialogue(JB_Dialogue dialogue)
@@ -35,6 +37,7 @@ public class JB_DialogueManager : MonoBehaviour
         // clearing current queues to make sure we dont repeat previous dialogues
         names.Clear();
         sentences.Clear();
+        characterImg.Clear();
 
         // initialising values from dialogue class into queue variable
 
@@ -42,7 +45,7 @@ public class JB_DialogueManager : MonoBehaviour
         {
             names.Enqueue(dialogue.interactions[i].name);
             sentences.Enqueue(dialogue.interactions[i].sentences);
-            characterImage.sprite = dialogue.interactions[i].characterSprite;
+            characterImg.Enqueue(dialogue.interactions[i].characterSprite);
         }
         
         
@@ -62,9 +65,10 @@ public class JB_DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         string name = names.Dequeue();
+        Sprite character = characterImg.Dequeue();
 
         nameText.text = name;
-
+        characterImage.sprite = character;
         //DisplayCharacterSprite(name);
 
         StopAllCoroutines();

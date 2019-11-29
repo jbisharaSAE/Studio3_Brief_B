@@ -13,6 +13,7 @@ TagManager:
   - GroceryManager
   - MatchSystem
   - ListButton
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - Player
   - PlatformPlayer
   - Grocery
-  - 
+  - PostProcess
   - 
   - 
   - 
@@ -47,6 +48,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background Sky
+    uniqueID: 544308805
+    locked: 0
+  - name: Background
+    uniqueID: 3745133321
+    locked: 0
+  - name: Enviromental assets
+    uniqueID: 2059882525
+    locked: 0
+  - name: Water
+    uniqueID: 816635989
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Midground
+    uniqueID: 3768872877
+    locked: 0
+  - name: Forground
+    uniqueID: 3681971141
     locked: 0

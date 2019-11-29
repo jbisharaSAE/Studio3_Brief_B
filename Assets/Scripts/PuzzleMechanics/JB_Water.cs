@@ -5,16 +5,21 @@ using UnityEngine;
 public class JB_Water : MonoBehaviour
 {
     private BuoyancyEffector2D water;
+    private float scaleY;
 
     private void Start()
     {
         water = GetComponent<BuoyancyEffector2D>();
+
+        scaleY = transform.localScale.y;
+
+        Debug.Log(scaleY);
     }
 
     private void Update()
     {
         // gives water floating effect
-        water.surfaceLevel = 2f + (Mathf.Cos(Time.time * 20 / Mathf.PI) * 0.1f);
+        water.surfaceLevel = scaleY + (Mathf.Cos(Time.time * 20 / Mathf.PI) * 0.1f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
