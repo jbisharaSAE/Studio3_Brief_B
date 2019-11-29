@@ -693,6 +693,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Collab: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -713,10 +714,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: ac1ef0d2-e155-4908-92f3-9421a0318f1c
+  cloudProjectId: 11282e8b-f831-4237-9cae-5d2c2eaadb3c
   framebufferDepthMemorylessMode: 0
-  projectName: Studio3_BriefB
-  organizationId: jbishara
+  projectName: Bob 'n' Tot
+  organizationId: unity_1012305
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
