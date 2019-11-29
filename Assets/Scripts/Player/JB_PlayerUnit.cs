@@ -55,18 +55,19 @@ public class JB_PlayerUnit : NetworkBehaviour
 
         
         // 9 items total in game
-        itemsPickedUp = new bool[JB_GroceryManager.numberOfItems];
+        itemsPickedUp = new bool[8];
 
         // hide host / join buttons
         GameObject go = GameObject.FindGameObjectWithTag("MatchSystem");
         go.SetActive(false);
 
         // find grocery button
-        GameObject listButton = GameObject.FindGameObjectWithTag("ListButton");
-        listButton.GetComponent<Image>().enabled = true;
-        listButton.GetComponent<Button>().enabled = true;
-        listButton.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
+        //GameObject listButton = GameObject.FindGameObjectWithTag("ListButton");
+        //listButton.GetComponent<Image>().enabled = true;
+        //listButton.GetComponent<Button>().enabled = true;
+        //listButton.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
     }
+    #region save_system
 
     // used when saving game
     public void FindSceneItems()
@@ -115,6 +116,7 @@ public class JB_PlayerUnit : NetworkBehaviour
             
         }
     }
+    #endregion
 
     public void AddItem(int index)
     {

@@ -37,7 +37,7 @@ public class JB_GroceryItem : MonoBehaviour
         {
             collision.gameObject.GetComponent<JB_PlayerUnit>().AddItem(numConversion);
 
-            onPickup(groceryType);
+            //onPickup(groceryType);
             
             Destroy(gameObject);
         }

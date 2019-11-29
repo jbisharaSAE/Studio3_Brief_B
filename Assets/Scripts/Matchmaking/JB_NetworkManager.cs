@@ -38,7 +38,7 @@ public class JB_NetworkManager : NetworkManager
         matchMaker.ListMatches(0, 10, "", true, 0, 0, HandleListMatchesComplete);
     }
 
-    internal void JoinMatch(MatchInfoSnapshot match)
+    public void JoinMatch(MatchInfoSnapshot match)
     {
         if(matchMaker == null)
         {

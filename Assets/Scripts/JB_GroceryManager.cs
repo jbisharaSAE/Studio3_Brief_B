@@ -10,8 +10,8 @@ using TMPro;
 public class JB_GroceryManager : MonoBehaviour
 {
     
-    public Image[] crossTickImg;
-    public Sprite greenTick;
+    public GameObject[] crossTickObj;
+    
 
     public GameObject blackTextBoxArea;
     public TextMeshProUGUI alertText;
@@ -50,7 +50,7 @@ public class JB_GroceryManager : MonoBehaviour
 
         int index = (int)item;
 
-        crossTickImg[index].sprite = greenTick;
+        //crossTickImg[index].sprite = greenTick;
         itemPickedUp[index] = true;
 
         Debug.Log("Swap function called");
