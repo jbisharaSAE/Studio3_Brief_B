@@ -1,0 +1,799 @@
+fileFormatVersion: 2
+guid: 995a0069f2f883349a02d3be96de33cf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5737048319472905492
+    second: M484CandyStuff-Transparent_0
+  - first:
+      213: 4786840649782548443
+    second: M484CandyStuff-Transparent_1
+  - first:
+      213: -5912288619810891858
+    second: M484CandyStuff-Transparent_6
+  - first:
+      213: -5264580524357200292
+    second: M484CandyStuff-Transparent_11
+  - first:
+      213: 1214964682361119767
+    second: M484CandyStuff-Transparent_28
+  - first:
+      213: -2251751264513931338
+    second: M484CandyStuff-Transparent_61
+  - first:
+      213: 8006674967620081379
+    second: M484CandyStuff-Transparent_62
+  - first:
+      213: -5546037087410375653
+    second: M484CandyStuff-Transparent_64
+  - first:
+      213: 9201021224861004827
+    second: M484CandyStuff-Transparent_65
+  - first:
+      213: -1142148564611417783
+    second: M484CandyStuff-Transparent_66
+  - first:
+      213: 7400600180440161774
+    second: M484CandyStuff-Transparent_67
+  - first:
+      213: -9155921956404649819
+    second: M484CandyStuff-Transparent_68
+  - first:
+      213: -2788326369554874401
+    second: M484CandyStuff-Transparent_69
+  - first:
+      213: 815976276487379262
+    second: M484CandyStuff-Transparent_70
+  - first:
+      213: 1592450787892910458
+    second: M484CandyStuff-Transparent_71
+  - first:
+      213: 4399947618701339370
+    second: M484CandyStuff-Transparent_72
+  - first:
+      213: -8253755470262881010
+    second: M484CandyStuff-Transparent_73
+  - first:
+      213: -3411143025128210652
+    second: M484CandyStuff-Transparent_74
+  - first:
+      213: 5105673124918947605
+    second: M484CandyStuff-Transparent_75
+  - first:
+      213: 559773208355547566
+    second: M484CandyStuff-Transparent_76
+  - first:
+      213: -7307753459777886809
+    second: M484CandyStuff-Transparent_77
+  - first:
+      213: -4419620387757202866
+    second: M484CandyStuff-Transparent_78
+  - first:
+      213: 1856786952116937342
+    second: M484CandyStuff-Transparent_79
+  - first:
+      213: 1686679428122087667
+    second: M484CandyStuff-Transparent_80
+  - first:
+      213: 2327646913080364360
+    second: M484CandyStuff-Transparent_81
+  - first:
+      213: 5239286473971497006
+    second: M484CandyStuff-Transparent_82
+  - first:
+      213: 5812543255134239767
+    second: M484CandyStuff-Transparent_83
+  - first:
+      213: 590830404033630678
+    second: M484CandyStuff-Transparent_84
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_0
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 511
+        width: 31
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4a698f972af8bf4b9d4963ea1f95e67
+      internalID: 5737048319472905492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 511
+        width: 30
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35076283db3317147bf25c5cf08d923c
+      internalID: 4786840649782548443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_6
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 511
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c7ef73efa39bb145b1b5f8e274ccb9f
+      internalID: -5912288619810891858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_11
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 511
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d28ca7457fa3ff0418ef8860d20820c2
+      internalID: -5264580524357200292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_28
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 394
+        width: 138
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc90a8530cc0544e8c04e12c5137204
+      internalID: 1214964682361119767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_61
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 395
+        width: 102
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee4d4b9a6fca37044a4e0995839e65e2
+      internalID: -2251751264513931338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_62
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 402
+        width: 100
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2206ed3dfa6b7a479d92c2bca492725
+      internalID: 8006674967620081379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_64
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 333
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bfe2c32497ebb346bdb252920cb596c
+      internalID: -5546037087410375653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_65
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 333
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 255fdeddd8f55ed44a0a361d8600bbf5
+      internalID: 9201021224861004827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_66
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 229
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527a58dc91910a24cb3d5fff46a34af6
+      internalID: -1142148564611417783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_67
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 260
+        width: 62
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5c601d0ce13d0499aa9aaeb3a69285
+      internalID: 7400600180440161774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_68
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 254
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bb992e5a80eb6743aaca4eb15160134
+      internalID: -9155921956404649819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_69
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 245
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78708c92bd0703349b60e5657c6a7d27
+      internalID: -2788326369554874401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_70
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 201
+        width: 102
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e1f635ce7847d4cae91976c611df96
+      internalID: 815976276487379262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_71
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 122
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c8b73fe7268ba42b0294142da7d608
+      internalID: 1592450787892910458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_72
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 122
+        width: 25
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1644844b1ab9c8240af6a586f8dc71ab
+      internalID: 4399947618701339370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_73
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 122
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dc4863b728e09945931382fa607c736
+      internalID: -8253755470262881010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_74
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 121
+        width: 39
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aced78c6b755d84a923dce474f876fa
+      internalID: -3411143025128210652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_75
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 110
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc6bdebf6d7355645a703d98d61c7e55
+      internalID: 5105673124918947605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_76
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 110
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32eb8fc0a81c3194a8cd956fb8986cce
+      internalID: 559773208355547566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_77
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 110
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e18b0814d296e624bb66dade9205e18f
+      internalID: -7307753459777886809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_78
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 110
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4fbf71f12d3f3141a20d1238fa34db0
+      internalID: -4419620387757202866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_79
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 80
+        width: 79
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ba1e8668972714b993df4927e35ddf
+      internalID: 1856786952116937342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_80
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 80
+        width: 81
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9317a0c183ab4ff499b5d10992a0465a
+      internalID: 1686679428122087667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_81
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 80
+        width: 81
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b28221ee212a6cb458eb069a5673abbe
+      internalID: 2327646913080364360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_82
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 28
+        width: 39
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 430e0f8fd793c0b4288347dcf236af5c
+      internalID: 5239286473971497006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_83
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 28
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f614fccd0c961214dabe414c3bb1870d
+      internalID: 5812543255134239767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff-Transparent_84
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 18
+        width: 80
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f86a2c1eadd1d54ab7511e0fe459c3a
+      internalID: 590830404033630678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

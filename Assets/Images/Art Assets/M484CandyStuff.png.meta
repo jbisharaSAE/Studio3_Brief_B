@@ -1,7 +1,62 @@
 fileFormatVersion: 2
 guid: 9a9fbd99792494246a9c3833d9e40ed9
 TextureImporter:
+<<<<<<< Updated upstream
   internalIDToNameTable: []
+=======
+  internalIDToNameTable:
+  - first:
+      213: 6046915228443970613
+    second: M484CandyStuff_0
+  - first:
+      213: 3495707137882588357
+    second: M484CandyStuff_1
+  - first:
+      213: -5406214217768449603
+    second: M484CandyStuff_2
+  - first:
+      213: 2138762362199723776
+    second: M484CandyStuff_3
+  - first:
+      213: 3326714682111106564
+    second: M484CandyStuff_4
+  - first:
+      213: -630731361444856761
+    second: M484CandyStuff_5
+  - first:
+      213: -3515475689219861591
+    second: M484CandyStuff_6
+  - first:
+      213: 3376989021644281624
+    second: M484CandyStuff_7
+  - first:
+      213: -5621201615772166068
+    second: M484CandyStuff_8
+  - first:
+      213: -7560693907151502837
+    second: M484CandyStuff_9
+  - first:
+      213: 7403970407780350946
+    second: M484CandyStuff_10
+  - first:
+      213: -2939342779427907947
+    second: M484CandyStuff_11
+  - first:
+      213: -9056455363062857896
+    second: M484CandyStuff_12
+  - first:
+      213: -6643865657534572643
+    second: M484CandyStuff_13
+  - first:
+      213: 5425231142730459776
+    second: M484CandyStuff_14
+  - first:
+      213: -2239907388047593678
+    second: M484CandyStuff_15
+  - first:
+      213: 1521454251788512836
+    second: M484CandyStuff_16
+>>>>>>> Stashed changes
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +86,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< Updated upstream
     filterMode: -1
+=======
+    filterMode: 0
+>>>>>>> Stashed changes
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -70,9 +129,408 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< Updated upstream
   spriteSheet:
     serializedVersion: 2
     sprites: []
+=======
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: M484CandyStuff_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 392
+        width: 135
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2d9e35d5dc10044b94c19b736fea11a
+      internalID: 6046915228443970613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 507
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c613b4addc37d7a41900799970a47af4
+      internalID: 3495707137882588357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_2
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 509
+        width: 33
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48536173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e6d9d4ec8d8e944b4a54489921f31c
+      internalID: -5406214217768449603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_3
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 511
+        width: 35
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c31cc2259872d54da728894f74f0536
+      internalID: 2138762362199723776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_4
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 511
+        width: 31
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e9c74cd5b9848f44bce072b9d6fbed5
+      internalID: 3326714682111106564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_5
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 399
+        width: 104
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e160920c5bda5e645bbfa4d32e01caef
+      internalID: -630731361444856761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 226
+        width: 68
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 664b52c2cdfe8474ab2179c1b5ff6629
+      internalID: -3515475689219861591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_7
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 244
+        width: 63
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed34e3014ca95f248a835c1fc86cdcc6
+      internalID: 3376989021644281624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_8
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 78
+        width: 85
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff558fa01fddc0d4ea98a7445a27b96f
+      internalID: -5621201615772166068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_9
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 76
+        width: 84
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8291964a7a94dc448b30e59c8d85e70b
+      internalID: -7560693907151502837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_10
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 107
+        width: 38
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456d6eddce92ff2408ae95a7c945f109
+      internalID: 7403970407780350946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_11
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 24
+        width: 48
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96305dc725ef566469cd0ed4d9fab187
+      internalID: -2939342779427907947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_12
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 26
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c65991d6aabae0c439fe6e9bbf794501
+      internalID: -9056455363062857896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_13
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 16
+        width: 83
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b44fa29052960e9479ffe259ed8da566
+      internalID: -6643865657534572643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_14
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 119
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424c0e8a8773e56489b96c5585b8138a
+      internalID: 5425231142730459776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_15
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 119
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68ad99b1c41f98445adcf5774dfb15c8
+      internalID: -2239907388047593678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484CandyStuff_16
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 120
+        width: 49
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00cbccb6d1a43294d8d9f9ad555af52e
+      internalID: 1521454251788512836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+>>>>>>> Stashed changes
     outline: []
     physicsShape: []
     bones: []
