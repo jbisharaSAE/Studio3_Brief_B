@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿//using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using TMPro;
-using System;
-using UnityEngine.UI;
+//using System;
+//using UnityEngine.UI;
 
 public class JB_PlayerUnit : NetworkBehaviour
 {
@@ -39,7 +39,9 @@ public class JB_PlayerUnit : NetworkBehaviour
     [HideInInspector] public List<bool> waterMovable = new List<bool>();
     [HideInInspector] public List<bool> waterToggle = new List<bool>();
 
+    [SyncVar]
     public bool[] itemsPickedUp;
+
     public Transform groundCheck;
     public LayerMask whatIsGround;
 
@@ -55,7 +57,7 @@ public class JB_PlayerUnit : NetworkBehaviour
 
         
         // 9 items total in game
-        itemsPickedUp = new bool[8];
+        //itemsPickedUp = new bool[8];
 
         // hide host / join buttons
         GameObject go = GameObject.FindGameObjectWithTag("MatchSystem");
@@ -118,10 +120,47 @@ public class JB_PlayerUnit : NetworkBehaviour
     }
     #endregion
 
-    public void AddItem(int index)
+    
+
+    private void FindGroceryList(int index, GameObject groceryItem)
     {
-        itemsPickedUp[index] = true;
+        Debug.Log("TESTING FIND GROCERY LIST FUNCTION :: ");
+        Debug.Log("INDEX PARAMETER = " + index + " : GROCERY ITEM PARAMETER = " + groceryItem.name);
+        
+
+        foreach (KeyValuePair<NetworkInstanceId, NetworkIdentity> pair in NetworkServer.objects)
+        {
+            Debug.Log("Testing for loop");
+            if(pair.Value.gameObject.GetComponent<JB_PlayerUnit>())
+            {
+                Debug.Log("TESTING LOOP IF STATEMENT FOR CMD FUNCTIONS");
+                CmdUpdateGroceryList(pair.Value.gameObject, index, groceryItem);
+            }
+        }
     }
+
+    [Command]
+    private void CmdUpdateGroceryList(GameObject playerObj, int index, GameObject groceryItem)
+    {
+        Debug.Log("TESTING UPDATE GROCERY LIST FUNCTION :: cMD");
+        playerObj.GetComponent<JB_PlayerUnit>().itemsPickedUp[index] = true;
+        playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(0).gameObject.SetActive(false);  // fist child gameobject is red cross
+        playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(1).gameObject.SetActive(true);   // second child gameobject is greentick
+        RpcUpdateGroceryList(playerObj, index, groceryItem);
+        Destroy(groceryItem);
+    }
+
+    [ClientRpc]
+    private void RpcUpdateGroceryList(GameObject playerObj, int index, GameObject groceryItem)
+    {
+        Debug.Log("the INDEX NUMBER PARAMETER = " + index);
+        Debug.LogWarning("we reached client call UPDATE LIST");
+        playerObj.GetComponent<JB_PlayerUnit>().itemsPickedUp[index] = true;
+        playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(0).gameObject.SetActive(false);  // fist child gameobject is red cross
+        playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(1).gameObject.SetActive(true);   // second child gameobject is greentick
+        Destroy(groceryItem);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -190,6 +229,18 @@ public class JB_PlayerUnit : NetworkBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "Item")
+        {
+            int n = col.gameObject.GetComponent<JB_GroceryItem>().numConversion;
+            Debug.Log("WE HIT GROCERY ITEM!");
+            FindGroceryList(n, col.gameObject);
+            //itemsPickedUp[n] = true;
+            Destroy(col.gameObject);
+        }    
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Water")
@@ -220,21 +271,28 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        Vector3 hit = col.contacts[0].normal;
+        if(col.gameObject.tag != "Player")
+        {
+            Vector3 hit = col.contacts[0].normal;
 
-        CollideWallTest(hit);
+            CollideWallTest(hit);
+        }
+        
     }
 
     void OnCollisionStay2D(Collision2D col)
     {
+        if (col.gameObject.tag != "Player")
+        {
+            Vector3 hit = col.contacts[0].normal;
 
-        Vector3 hit = col.contacts[0].normal;
-
-        CollideWallTest(hit);
+            CollideWallTest(hit);
+        }
 
     }
     private void CollideWallTest(Vector3 hit)
     {
+        
         if (hit.x == -1 || hit.y == -1)
         {
             // left direction

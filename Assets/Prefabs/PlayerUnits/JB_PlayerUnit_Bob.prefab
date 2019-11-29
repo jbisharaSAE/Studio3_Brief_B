@@ -3043,7 +3043,6 @@ MonoBehaviour:
   - {fileID: 2899383109689901528}
   - {fileID: 5253616092891422904}
   - {fileID: 2652979446002829076}
-  greenTick: {fileID: 0}
   blackTextBoxArea: {fileID: 6884678056834863359}
   alertText: {fileID: 2495986014757438301}
   itemPickedUp: 0000000000000000
@@ -4008,7 +4007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &166627318057519552
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7515,7 +7514,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crossTickObj: []
-  greenTick: {fileID: 21300000, guid: 9e2dd9f4f5dda90449d2ad74ffe3e26f, type: 3}
   blackTextBoxArea: {fileID: 6884678056834863359}
   alertText: {fileID: 2495986014757438301}
   itemPickedUp: 

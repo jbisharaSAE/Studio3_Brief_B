@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 // linen, timber, bread
 public enum GroceryList { Banana, Battery, Meat, Milk, Toothpaste, Soap, Pillow, Ruler }
 public class JB_GroceryItem : MonoBehaviour
@@ -12,8 +13,9 @@ public class JB_GroceryItem : MonoBehaviour
 
     public GroceryList groceryType;
 
-    private int numConversion;
-    
+    [HideInInspector]
+    public int numConversion;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,22 +26,24 @@ public class JB_GroceryItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         // oscillating between two numbers - Cos(time, speed / PI) * scale - where scale determines how large the number oscillates between
         float z = Mathf.Cos(Time.time * 20 / Mathf.PI) * 0.5f;
-        
+
         transform.Rotate(0f, 0f, z);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            collision.gameObject.GetComponent<JB_PlayerUnit>().AddItem(numConversion);
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if(collision.gameObject.tag == "Player")
+    //    {
+    //        collision.gameObject.GetComponent<JB_PlayerUnit>().AddItem(numConversion, gameObject);
 
-            //onPickup(groceryType);
-            
-            Destroy(gameObject);
-        }
-    }
+    //        //onPickup(groceryType);
+
+    //        //Destroy(gameObject);
+    //    }
+    //}
+
 }
+

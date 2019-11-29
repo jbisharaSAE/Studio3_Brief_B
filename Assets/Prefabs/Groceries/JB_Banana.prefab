@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groceryType: 0
-  managerScript: {fileID: 0}
+  numConversion: 0
 --- !u!61 &1865614422104048025
 BoxCollider2D:
   m_ObjectHideFlags: 0
