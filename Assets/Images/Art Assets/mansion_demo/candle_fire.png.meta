@@ -1,7 +1,23 @@
 fileFormatVersion: 2
 guid: 8111b945525de584e82110123eae7520
 TextureImporter:
+<<<<<<< Updated upstream
   internalIDToNameTable: []
+=======
+  internalIDToNameTable:
+  - first:
+      213: -6869012060717175868
+    second: candle_fire_0
+  - first:
+      213: 2453322099389751930
+    second: candle_fire_1
+  - first:
+      213: -5820212200879054200
+    second: candle_fire_2
+  - first:
+      213: -7687075545079403907
+    second: candle_fire_3
+>>>>>>> Stashed changes
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +47,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< Updated upstream
     filterMode: -1
+=======
+    filterMode: 0
+>>>>>>> Stashed changes
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +60,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< Updated upstream
   spriteMode: 1
+=======
+  spriteMode: 2
+>>>>>>> Stashed changes
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +94,135 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< Updated upstream
   spriteSheet:
     serializedVersion: 2
     sprites: []
+=======
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: candle_fire_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 14
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a8f6097e18fd94babdac3c1d7fff0d
+      internalID: -6869012060717175868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: candle_fire_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 14
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bca688240643503489f616047eb385a3
+      internalID: 2453322099389751930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: candle_fire_2
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 14
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 478b53f2246be2a4baf26cb65e39ea5a
+      internalID: -5820212200879054200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: candle_fire_3
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 14
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e0447efea3eabc47ab1a56cd1f3c6c9
+      internalID: -7687075545079403907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+>>>>>>> Stashed changes
     outline: []
     physicsShape: []
     bones: []
