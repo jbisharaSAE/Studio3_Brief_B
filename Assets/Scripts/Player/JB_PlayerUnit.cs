@@ -38,8 +38,8 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     [HideInInspector] public List<bool> waterMovable = new List<bool>();
     [HideInInspector] public List<bool> waterToggle = new List<bool>();
-
-    [SyncVar]
+    
+    [HideInInspector]
     public bool[] itemsPickedUp;
 
     public Transform groundCheck;
@@ -57,7 +57,7 @@ public class JB_PlayerUnit : NetworkBehaviour
 
         
         // 9 items total in game
-        //itemsPickedUp = new bool[8];
+        itemsPickedUp = new bool[8];
 
         // hide host / join buttons
         GameObject go = GameObject.FindGameObjectWithTag("MatchSystem");

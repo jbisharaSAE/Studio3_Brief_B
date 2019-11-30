@@ -28,6 +28,9 @@ public class JB_ConnectionObj : NetworkBehaviour
     [SyncVar]
     public bool isReady;
 
+    [SyncVar]
+    public int playerConnections;
+
     public GameObject waitingForPlayerTextBox;
     
     // player connection objects
@@ -39,9 +42,26 @@ public class JB_ConnectionObj : NetworkBehaviour
     private Transform mainCamWp;
 
     private GameObject playerUnit;
-
+    
+    
     // length of 2, one for each player
     private List<bool> ready = new List<bool>();
+
+    public override void OnStartServer()
+    {
+        Debug.Log("start server called");
+        GameObject[] objects = GameObject.FindGameObjectsWithTag(this.tag);
+
+        foreach(GameObject obj in objects)
+        {
+            Debug.Log("started for loop");
+            obj.GetComponent<JB_ConnectionObj>().playerConnections = NetworkServer.connections.Count;
+        }
+        //playerConnections = NetworkServer.connections.Count;
+    }
+
+    
+    
 
     // Start is called before the first frame update
     void Start()
@@ -64,23 +84,28 @@ public class JB_ConnectionObj : NetworkBehaviour
     {
         if (!this.isLocalPlayer) { return; }
         
-        // 0 for bob, 1 for tot ... button OnClick() does not take enum for parameters
-        switch (hType)
+        
+        if(playerConnections > 1) // checking to see if both players have joined
         {
-            case 0:
-                heroType = HeroType.Bob;
-                break;
-            case 1:
-                heroType = HeroType.Tot;
-                break;
-            default:
-                break;
+            // 0 for bob, 1 for tot ... button OnClick() does not take enum for parameters
+            switch (hType)
+            {
+                case 0:
+                    heroType = HeroType.Bob;
+                    break;
+                case 1:
+                    heroType = HeroType.Tot;
+                    break;
+                default:
+                    break;
+            }
+
+            CmdSpawnCharacter(heroType);
+
+
+            CheckPlayerReady();
         }
-
-        CmdSpawnCharacter(heroType);
-
-
-        CheckPlayerReady();
+        
     }
 
    

@@ -57,5 +57,11 @@ public class JB_NetworkManager : NetworkManager
     {
         JB_AvailableMatchesList.HandleNewMatchList(responseData);
     }
+
+    private void OnConnectedToServer()
+    {
+        Debug.Log("this is getting called");
+        //playerConnections = NetworkServer.connections.Count;
+    }
 }
 

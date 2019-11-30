@@ -13,7 +13,7 @@ public class JB_Water : MonoBehaviour
 
         scaleY = transform.localScale.y;
 
-        Debug.Log(scaleY);
+        
     }
 
     private void Update()
