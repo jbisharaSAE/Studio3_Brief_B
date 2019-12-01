@@ -38,7 +38,7 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     [HideInInspector] public List<bool> waterMovable = new List<bool>();
     [HideInInspector] public List<bool> waterToggle = new List<bool>();
-    
+
     [HideInInspector]
     public bool[] itemsPickedUp;
 
@@ -73,6 +73,12 @@ public class JB_PlayerUnit : NetworkBehaviour
         go.SetActive(false);
 
         audioSource = GetComponent<AudioSource>();
+
+        Debug.Log("ARRAY LENGTH :: " + itemsPickedUp.Length);
+    }
+    private void Awake()
+    {
+         itemsPickedUp = new bool[8];
     }
 
     #region save_system
