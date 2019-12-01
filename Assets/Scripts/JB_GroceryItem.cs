@@ -16,11 +16,13 @@ public class JB_GroceryItem : MonoBehaviour
     [HideInInspector]
     public int numConversion;
 
+    
 
     // Start is called before the first frame update
     void Start()
     {
         numConversion = (int)groceryType;
+    
     }
 
     // Update is called once per frame
@@ -33,17 +35,6 @@ public class JB_GroceryItem : MonoBehaviour
         transform.Rotate(0f, 0f, z);
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if(collision.gameObject.tag == "Player")
-    //    {
-    //        collision.gameObject.GetComponent<JB_PlayerUnit>().AddItem(numConversion, gameObject);
-
-    //        //onPickup(groceryType);
-
-    //        //Destroy(gameObject);
-    //    }
-    //}
 
 }
 

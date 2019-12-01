@@ -19,6 +19,11 @@ public class JB_LeverTrigger : MonoBehaviour
     public Transform locationTwo;
 
     private Rigidbody2D leverRB;
+
+    public AudioClip leverSound;
+    public AudioClip platformSound;
+
+    private AudioSource audioSource;
     
 
     private void Awake()
@@ -27,7 +32,10 @@ public class JB_LeverTrigger : MonoBehaviour
 
     }
 
-    
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -90,6 +98,9 @@ public class JB_LeverTrigger : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             bToggle = !bToggle;
+            // play lever sound
+            audioSource.PlayOneShot(leverSound);
+            audioSource.PlayOneShot(platformSound);
         }
     }
 }

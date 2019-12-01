@@ -45,6 +45,15 @@ public class JB_PlayerUnit : NetworkBehaviour
     public Transform groundCheck;
     public LayerMask whatIsGround;
 
+    [Header("Audio")]
+    public AudioClip bobJump;
+    public AudioClip totJump;
+    public AudioClip bobSplash;
+    public AudioClip totSplash;
+    public AudioClip pickupSound;
+    public AudioClip pressureSound;
+
+    private AudioSource audioSource;
 
     public override void OnStartAuthority()
     {
@@ -63,12 +72,9 @@ public class JB_PlayerUnit : NetworkBehaviour
         GameObject go = GameObject.FindGameObjectWithTag("MatchSystem");
         go.SetActive(false);
 
-        // find grocery button
-        //GameObject listButton = GameObject.FindGameObjectWithTag("ListButton");
-        //listButton.GetComponent<Image>().enabled = true;
-        //listButton.GetComponent<Button>().enabled = true;
-        //listButton.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
+        audioSource = GetComponent<AudioSource>();
     }
+
     #region save_system
 
     // used when saving game
@@ -120,8 +126,8 @@ public class JB_PlayerUnit : NetworkBehaviour
     }
     #endregion
 
-    
 
+    #region grocery_list
     private void FindGroceryList(int index, GameObject groceryItem)
     {
         Debug.Log("TESTING FIND GROCERY LIST FUNCTION :: ");
@@ -160,17 +166,9 @@ public class JB_PlayerUnit : NetworkBehaviour
         playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(1).gameObject.SetActive(true);   // second child gameobject is greentick
         Destroy(groceryItem);
     }
+    #endregion
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(!this.hasAuthority) { return; }
-        if (!canMove) { return; }
-
-        //directionX = Input.GetAxisRaw("Horizontal") * moveSpeed;
-    }
-
+    #region movement
     private void FixedUpdate()
     {
         if (!this.hasAuthority) { return; }
@@ -200,6 +198,20 @@ public class JB_PlayerUnit : NetworkBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
+
+            // play audio jump
+            switch ((int)heroType)
+            {
+                case 0:
+                    //bob
+                    audioSource.PlayOneShot(bobJump);
+                    break;
+                case 1:
+                    audioSource.PlayOneShot(totJump);
+                    break;
+                default:
+                    break;
+            }
         }
         
     }
@@ -228,6 +240,7 @@ public class JB_PlayerUnit : NetworkBehaviour
         }
         
     }
+    #endregion
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -236,7 +249,7 @@ public class JB_PlayerUnit : NetworkBehaviour
             int n = col.gameObject.GetComponent<JB_GroceryItem>().numConversion;
             Debug.Log("WE HIT GROCERY ITEM!");
             FindGroceryList(n, col.gameObject);
-            //itemsPickedUp[n] = true;
+            audioSource.PlayOneShot(pickupSound);
             Destroy(col.gameObject);
         }    
     }
@@ -250,34 +263,44 @@ public class JB_PlayerUnit : NetworkBehaviour
             {
                 // if bob hits the water, disable collider
                 Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), this.GetComponent<BoxCollider2D>());
+
+                // play audio splash for bob
+                audioSource.PlayOneShot(bobSplash);
             }
             else if (heroType == HeroType.Tot)
             {
                 Debug.Log("Tot");
                 // if tot hits the water, let her have the ability to jump
                 isGrounded = true;
+
+                // play audio splash for tot
+                audioSource.PlayOneShot(totSplash);
             }
 
         }
         
     }
 
-
+    // sending event
     public void OnWaterClick()
     {
         OnWaterButton();
 
     }
 
+    #region wall_collision
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag != "Player")
+        if (col.gameObject.tag != "Player")
         {
             Vector3 hit = col.contacts[0].normal;
 
             CollideWallTest(hit);
         }
-        
+        else if(col.gameObject.tag == "PressurePlate")
+        {
+            audioSource.PlayOneShot(pressureSound);
+        }
     }
 
     void OnCollisionStay2D(Collision2D col)
@@ -292,7 +315,7 @@ public class JB_PlayerUnit : NetworkBehaviour
     }
     private void CollideWallTest(Vector3 hit)
     {
-        
+
         if (hit.x == -1 || hit.y == -1)
         {
             // left direction
@@ -306,4 +329,13 @@ public class JB_PlayerUnit : NetworkBehaviour
             leftOrRight = 0;
         }
     }
+    #endregion
+
+    #region audio_commands
+
+    
+
+    #endregion
+
+
 }

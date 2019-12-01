@@ -3402,6 +3402,11 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 525840
+  bobJump: {fileID: 8300000, guid: 2f1d72744b03ffd48b1f1fb66382be2d, type: 3}
+  totJump: {fileID: 8300000, guid: f3800b44958f43c48acddaa4f9b7f2c0, type: 3}
+  bobSplash: {fileID: 8300000, guid: cb98f025b04295147892beb760e6685d, type: 3}
+  totSplash: {fileID: 8300000, guid: 03558987e66b30c4a80cf974dc2a69d1, type: 3}
+  pickupSound: {fileID: 8300000, guid: 856d4bd30e0aa204d82c754833c8c00c, type: 3}
 --- !u!61 &3104167123579421607
 BoxCollider2D:
   m_ObjectHideFlags: 0
