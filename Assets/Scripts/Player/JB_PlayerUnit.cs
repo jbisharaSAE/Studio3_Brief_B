@@ -1,4 +1,4 @@
-﻿//using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -15,6 +15,7 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     public float moveSpeed = 5f;
     public float jumpForce = 2f;
+    private bool isPC;
 
     private Rigidbody2D rb;
     private float groundRadius = 0.15f;
@@ -79,7 +80,23 @@ public class JB_PlayerUnit : NetworkBehaviour
     private void Awake()
     {
          itemsPickedUp = new bool[8];
+
+        if(Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            isPC = true;
+        }
+        else if(Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            isPC = true;
+        }
+        else
+        {
+            isPC = false;
+        }
+
+
     }
+    
 
     #region save_system
 
@@ -182,6 +199,15 @@ public class JB_PlayerUnit : NetworkBehaviour
 
         // checks if player is grounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+
+        if (isPC)
+        {
+            leftOrRight = (int)Input.GetAxisRaw("Horizontal");
+            if (Input.GetButtonDown("Jump"))
+            {
+                Jump();
+            }
+        }
 
         Movement(leftOrRight);
 
