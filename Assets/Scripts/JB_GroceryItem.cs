@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 // linen, timber, bread
-public enum GroceryList { Banana, Battery, Meat, Milk, Toothpaste, Soap, Pillow, Ruler }
+public enum GroceryList { Banana, Battery, Meat, Milk, Toothpaste, Soap, Pillow, Ruler, Bread }
 public class JB_GroceryItem : MonoBehaviour
 {
     public delegate void ItemPickup(GroceryList itemType);

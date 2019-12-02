@@ -67,7 +67,7 @@ public class JB_PlayerUnit : NetworkBehaviour
 
         
         // 9 items total in game
-        itemsPickedUp = new bool[8];
+        //itemsPickedUp = new bool[9];
 
         // hide host / join buttons
         GameObject go = GameObject.FindGameObjectWithTag("MatchSystem");
@@ -79,7 +79,7 @@ public class JB_PlayerUnit : NetworkBehaviour
     }
     private void Awake()
     {
-         itemsPickedUp = new bool[8];
+         itemsPickedUp = new bool[9];
 
         if(Application.platform == RuntimePlatform.WindowsEditor)
         {
