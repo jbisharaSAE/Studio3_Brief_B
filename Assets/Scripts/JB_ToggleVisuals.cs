@@ -31,10 +31,12 @@ public class JB_ToggleVisuals : MonoBehaviour
         if (onOff)
         {
             playerCam.GetComponent<PostProcessLayer>().enabled = true;
+            QualitySettings.masterTextureLimit = 1;
         }
         else
         {
             playerCam.GetComponent<PostProcessLayer>().enabled = false;
+            QualitySettings.masterTextureLimit = 0;
         }
     }
 }

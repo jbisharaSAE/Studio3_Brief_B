@@ -26,6 +26,7 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     public GameObject playerCamera;
     public GameObject userControls;
+    public GameObject androidControls;
 
     public GameObject activateButton;
     public GameObject blackTextBoxArea;
@@ -65,7 +66,7 @@ public class JB_PlayerUnit : NetworkBehaviour
         playerCamera.transform.parent = null;
         userControls.SetActive(true);
 
-        
+
         // 9 items total in game
         //itemsPickedUp = new bool[9];
 
@@ -84,14 +85,17 @@ public class JB_PlayerUnit : NetworkBehaviour
         if(Application.platform == RuntimePlatform.WindowsEditor)
         {
             isPC = true;
+            androidControls.SetActive(false);
         }
         else if(Application.platform == RuntimePlatform.WindowsPlayer)
         {
             isPC = true;
+            androidControls.SetActive(false);
         }
         else
         {
             isPC = false;
+            
         }
 
 
