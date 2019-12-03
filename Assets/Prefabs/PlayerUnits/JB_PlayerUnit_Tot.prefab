@@ -4196,7 +4196,7 @@ MonoBehaviour:
   target: {fileID: 3445992209962978995}
   leftClamp: -68
   rightClamp: 342.6
-  topClamp: 45
+  topClamp: 67.9
   bottomClamp: -86
 --- !u!114 &2835310031082913628
 MonoBehaviour:

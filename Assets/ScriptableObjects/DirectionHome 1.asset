@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DirectionHome 1
   m_EditorClassIdentifier: 
   interactions:
-  - characterSprite: {fileID: 0}
+  - characterSprite: {fileID: 21300000, guid: cc35601d8a35b224a95c84c1a63096d3, type: 3}
     name: 
     sentences: Follow This way to get to get to upper level
