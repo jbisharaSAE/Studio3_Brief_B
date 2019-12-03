@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/LH_LevelReset.unity
+    guid: c5bbc3e18e0098e4fb35edf77e0ab885
   m_configObjects: {}
