@@ -69,23 +69,23 @@ public class JB_AdjustWater : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            collision.gameObject.GetComponent<JB_PlayerUnit>().activateButton.SetActive(true);
-            waterToMove = true;
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if(collision.gameObject.tag == "Player")
+    //    {
+    //        collision.gameObject.GetComponent<JB_PlayerUnit>().activateButton.SetActive(true);
+    //        waterToMove = true;
+    //    }
+    //}
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            collision.gameObject.GetComponent<JB_PlayerUnit>().activateButton.SetActive(false);
-            waterToMove = false;
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        collision.gameObject.GetComponent<JB_PlayerUnit>().activateButton.SetActive(false);
+    //        waterToMove = false;
+    //    }
+    //}
 
     private void OnEnable()
     {

@@ -86,7 +86,18 @@ MonoBehaviour:
   bobButton: {fileID: 4523834997129193377}
   totButton: {fileID: 4192514664587876534}
   isReady: 0
+  playerConnections: 0
   waitingForPlayerTextBox: {fileID: 7075501604335760989}
+  groceryItemsPrefabs:
+  - {fileID: 1865614422104048026, guid: f098bcdffa94c554784b3e3a611a85e2, type: 3}
+  - {fileID: 1865614422104048026, guid: 73c87da65831d9d4c95e8cf6764a2a0e, type: 3}
+  - {fileID: 1865614422104048026, guid: 1066b34d485fba94b9be7e50d5ff094c, type: 3}
+  - {fileID: 1865614422104048026, guid: 995ff1951e56bc749a16475f50e94c35, type: 3}
+  - {fileID: 1865614422104048026, guid: 18a266c201bf1e54da41cc4b5ea58d64, type: 3}
+  - {fileID: 1865614422104048026, guid: 7b1cbfea7e03ce441aab892a884882d0, type: 3}
+  - {fileID: 1865614422104048026, guid: e39a803de8adba04fb935af2df765028, type: 3}
+  - {fileID: 1865614422104048026, guid: 582c57e820c9a474e8176ce6d750905b, type: 3}
+  - {fileID: 1865614422104048026, guid: dd8db316942c4fa45b7eb10ee12375be, type: 3}
 --- !u!1 &1900137474992561417
 GameObject:
   m_ObjectHideFlags: 0

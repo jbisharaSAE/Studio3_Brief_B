@@ -32,7 +32,13 @@ public class JB_ConnectionObj : NetworkBehaviour
     public int playerConnections;
 
     public GameObject waitingForPlayerTextBox;
-    
+
+    [Header("Grocery item prefabs")]
+    [SerializeField]
+    private GameObject[] groceryItemsPrefabs;
+    private GameObject[] groceryItems;
+    private bool runOnce = false;
+
     // player connection objects
     private GameObject[] connectionObjects;
 
@@ -42,13 +48,15 @@ public class JB_ConnectionObj : NetworkBehaviour
     private Transform mainCamWp;
 
     private GameObject playerUnit;
-    
+    private GameObject[] itemSpawnPoints;
     
     // length of 2, one for each player
     private List<bool> ready = new List<bool>();
 
     public override void OnStartServer()
     {
+        groceryItems = new GameObject[9];
+
         Debug.Log("start server called");
         GameObject[] objects = GameObject.FindGameObjectsWithTag(this.tag);
 
@@ -57,11 +65,23 @@ public class JB_ConnectionObj : NetworkBehaviour
             Debug.Log("started for loop");
             obj.GetComponent<JB_ConnectionObj>().playerConnections = NetworkServer.connections.Count;
         }
-        //playerConnections = NetworkServer.connections.Count;
+
+      
+
     }
 
-    
-    
+    private void CmdSpawnGroceries()
+    {
+        for(int i = 0; i<groceryItemsPrefabs.Length; ++i)
+        {
+            groceryItems[i] = Instantiate(groceryItemsPrefabs[i], itemSpawnPoints[i].transform.position, Quaternion.identity);
+            if (NetworkServer.FindLocalObject(groceryItems[i].GetComponent<NetworkIdentity>().netId) == null)
+            {
+                NetworkServer.Spawn(groceryItems[i]);
+            }
+            
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -83,9 +103,16 @@ public class JB_ConnectionObj : NetworkBehaviour
     public void SpawnCharacter(int hType)
     {
         if (!this.isLocalPlayer) { return; }
-        
-        
-        if(playerConnections > 1) // checking to see if both players have joined
+
+        if (isServer && !runOnce)
+        {
+            itemSpawnPoints = GameObject.FindGameObjectsWithTag("GrocerySpawn").OrderBy(go => go.name).ToArray();
+
+            CmdSpawnGroceries();
+            runOnce = true;
+        }
+
+        if (playerConnections > 1) // checking to see if both players have joined
         {
             // 0 for bob, 1 for tot ... button OnClick() does not take enum for parameters
             switch (hType)

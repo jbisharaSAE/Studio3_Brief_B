@@ -49,6 +49,7 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     public Transform groundCheck;
     public LayerMask whatIsGround;
+    private GameObject[] groceryItems;
 
     [Header("Audio")]
     public AudioClip bobJump;
@@ -60,6 +61,7 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     private AudioSource audioSource;
 
+
     public override void OnStartAuthority()
     {
         if (!hasAuthority) { return; }
@@ -69,36 +71,20 @@ public class JB_PlayerUnit : NetworkBehaviour
         playerCamera.transform.parent = null;
         userControls.SetActive(true);
 
-
-        // 9 items total in game
-        //itemsPickedUp = new bool[9];
-
         // hide host / join buttons
         GameObject go = GameObject.FindGameObjectWithTag("MatchSystem");
         go.SetActive(false);
 
-        audioSource = GetComponent<AudioSource>();
+        
 
-        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
-
-        // sets gameobject for other player
-        foreach(GameObject player in allPlayers)
-        {
-            if(player != gameObject)
-            {
-                otherPlayer = player;
-            }
-        }
-        Debug.Log(otherPlayer);
-
-
-        Debug.Log("ARRAY LENGTH :: " + itemsPickedUp.Length);
+        
     }
     private void Awake()
     {
-         itemsPickedUp = new bool[9];
+        itemsPickedUp = new bool[9];
+        audioSource = GetComponent<AudioSource>();
 
-        if(Application.platform == RuntimePlatform.WindowsEditor)
+        if (Application.platform == RuntimePlatform.WindowsEditor)
         {
             isPC = true;
             androidControls.SetActive(false);
@@ -119,26 +105,28 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     private void Update()
     {
-        float distance = Vector2.Distance(transform.position, otherPlayer.transform.position);
-        Vector3 dir = otherPlayer.transform.position - transform.position;
-
-        dir.Normalize();
-
-        if(distance >= 20)
+        if(otherPlayer != null)
         {
-            // other player out of screen
-            // turn on navigation arrow
-            navigationArrow.SetActive(true);
-            navigationArrow.transform.right = dir;
+            float distance = Vector2.Distance(transform.position, otherPlayer.transform.position);
+            Vector3 dir = otherPlayer.transform.position - transform.position;
 
+            dir.Normalize();
+
+
+            if (distance >= 20)
+            {
+                // other player out of screen
+                // turn on navigation arrow
+                navigationArrow.SetActive(true);
+                navigationArrow.transform.right = dir;
+
+            }
+            else
+            {
+                navigationArrow.SetActive(false);
+            }
         }
-        else
-        {
-            navigationArrow.SetActive(false);
-        }
-        Debug.Log(distance);
-
-
+        
 
     }
 
@@ -207,7 +195,16 @@ public class JB_PlayerUnit : NetworkBehaviour
             if(pair.Value.gameObject.GetComponent<JB_PlayerUnit>())
             {
                 Debug.Log("TESTING LOOP IF STATEMENT FOR CMD FUNCTIONS");
-                CmdUpdateGroceryList(pair.Value.gameObject, index, groceryItem);
+                if (isServer)
+                {
+
+                    RpcUpdateGroceryList(pair.Value.gameObject, index, groceryItem);
+                }
+                else
+                {
+                    CmdUpdateGroceryList(pair.Value.gameObject, index, groceryItem);
+                }
+                
             }
         }
     }
@@ -216,11 +213,12 @@ public class JB_PlayerUnit : NetworkBehaviour
     private void CmdUpdateGroceryList(GameObject playerObj, int index, GameObject groceryItem)
     {
         Debug.Log("TESTING UPDATE GROCERY LIST FUNCTION :: cMD");
-        playerObj.GetComponent<JB_PlayerUnit>().itemsPickedUp[index] = true;
-        playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(0).gameObject.SetActive(false);  // fist child gameobject is red cross
-        playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(1).gameObject.SetActive(true);   // second child gameobject is greentick
+        //playerObj.GetComponent<JB_PlayerUnit>().itemsPickedUp[index] = true;
+        //playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(0).gameObject.SetActive(false);  // fist child gameobject is red cross
+        //playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(1).gameObject.SetActive(true);   // second child gameobject is greentick
+        NetworkServer.UnSpawn(groceryItem);
         RpcUpdateGroceryList(playerObj, index, groceryItem);
-        Destroy(groceryItem);
+        //NetworkServer.Destroy(groceryItem);
     }
 
     [ClientRpc]
@@ -231,7 +229,8 @@ public class JB_PlayerUnit : NetworkBehaviour
         playerObj.GetComponent<JB_PlayerUnit>().itemsPickedUp[index] = true;
         playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(0).gameObject.SetActive(false);  // fist child gameobject is red cross
         playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(1).gameObject.SetActive(true);   // second child gameobject is greentick
-        Destroy(groceryItem);
+        NetworkServer.UnSpawn(groceryItem);
+        //NetworkServer.Destroy(groceryItem);
     }
     #endregion
 
@@ -326,8 +325,45 @@ public class JB_PlayerUnit : NetworkBehaviour
             Debug.Log("WE HIT GROCERY ITEM!");
             FindGroceryList(n, col.gameObject);
             audioSource.PlayOneShot(pickupSound);
+   
+        }
+        
+        if(col.gameObject.tag == "WaterTrigger")
+        {
+            col.gameObject.GetComponent<JB_AdjustWater>().waterToMove = true;
+            activateButton.SetActive(true);
+        }
+        
+        if(col.gameObject.tag == "FindPlayer")
+        {
+            FindOtherPlayer();
             Destroy(col.gameObject);
-        }    
+        }
+    }
+
+    private void FindOtherPlayer()
+    {
+
+        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
+
+        // sets gameobject for other player
+        foreach (GameObject player in allPlayers)
+        {
+            if (player != gameObject)
+            {
+                otherPlayer = player;
+            }
+        }
+    }
+
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "WaterTrigger")
+        {
+            col.gameObject.GetComponent<JB_AdjustWater>().waterToMove = false;
+            activateButton.SetActive(false);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

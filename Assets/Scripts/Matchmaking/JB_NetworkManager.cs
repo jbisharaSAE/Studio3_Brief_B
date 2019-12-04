@@ -9,6 +9,7 @@ using UnityEngine.Networking.Match;
 public class JB_NetworkManager : NetworkManager
 {
     
+
     public void StartHosting()
     {
         StartMatchMaker();
@@ -58,10 +59,5 @@ public class JB_NetworkManager : NetworkManager
         JB_AvailableMatchesList.HandleNewMatchList(responseData);
     }
 
-    private void OnConnectedToServer()
-    {
-        Debug.Log("this is getting called");
-        //playerConnections = NetworkServer.connections.Count;
-    }
 }
 
