@@ -9,7 +9,13 @@ public class JB_ToggleVisuals : MonoBehaviour
     public Toggle toggleButton;
     public GameObject playerCam;
 
-   
+    private GameObject particleEffects;
+
+    private void Start()
+    {
+        particleEffects = GameObject.Find("ParticleEffects");
+    }
+
     public void SetVisualEffect()
     {
         if (toggleButton.GetComponent<Toggle>().isOn)
@@ -30,11 +36,13 @@ public class JB_ToggleVisuals : MonoBehaviour
     {
         if (onOff)
         {
+            particleEffects.SetActive(true);
             playerCam.GetComponent<PostProcessLayer>().enabled = true;
             QualitySettings.masterTextureLimit = 1;
         }
         else
         {
+            particleEffects.SetActive(false);
             playerCam.GetComponent<PostProcessLayer>().enabled = false;
             QualitySettings.masterTextureLimit = 0;
         }

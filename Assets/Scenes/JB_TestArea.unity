@@ -260,7 +260,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -560,6 +560,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JB_Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922914272723096281, guid: 92851989875f21544bb5e36fb181fa6f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2922914272723096284, guid: 92851989875f21544bb5e36fb181fa6f,
         type: 3}

@@ -13,13 +13,16 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     public HeroType heroType;
 
+    
     public float moveSpeed = 5f;
     public float jumpForce = 2f;
     private bool isPC;
 
     private Rigidbody2D rb;
-    private float groundRadius = 0.15f;
     public bool isGrounded;
+    private float groundRadius = 0.15f;
+    private GameObject otherPlayer;
+
 
     [HideInInspector] public bool canMove = false;    // determines if this player unit is allowed to move
     [HideInInspector] public int leftOrRight;         // int used to determine which direction the player is moving
@@ -31,13 +34,13 @@ public class JB_PlayerUnit : NetworkBehaviour
     public GameObject activateButton;
     public GameObject blackTextBoxArea;
     public TextMeshProUGUI dialogueTextBox;
+    public GameObject navigationArrow;
 
     // data to save for scene
     private GameObject[] leverObjects;
     private GameObject[] waterObjects;
 
     [HideInInspector] public List<bool> bLevers = new List<bool>();
-
     [HideInInspector] public List<bool> waterMovable = new List<bool>();
     [HideInInspector] public List<bool> waterToggle = new List<bool>();
 
@@ -76,6 +79,19 @@ public class JB_PlayerUnit : NetworkBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
+        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
+
+        // sets gameobject for other player
+        foreach(GameObject player in allPlayers)
+        {
+            if(player != gameObject)
+            {
+                otherPlayer = player;
+            }
+        }
+        Debug.Log(otherPlayer);
+
+
         Debug.Log("ARRAY LENGTH :: " + itemsPickedUp.Length);
     }
     private void Awake()
@@ -100,7 +116,31 @@ public class JB_PlayerUnit : NetworkBehaviour
 
 
     }
-    
+
+    private void Update()
+    {
+        float distance = Vector2.Distance(transform.position, otherPlayer.transform.position);
+        Vector3 dir = otherPlayer.transform.position - transform.position;
+
+        dir.Normalize();
+
+        if(distance >= 20)
+        {
+            // other player out of screen
+            // turn on navigation arrow
+            navigationArrow.SetActive(true);
+            navigationArrow.transform.right = dir;
+
+        }
+        else
+        {
+            navigationArrow.SetActive(false);
+        }
+        Debug.Log(distance);
+
+
+
+    }
 
     #region save_system
 
