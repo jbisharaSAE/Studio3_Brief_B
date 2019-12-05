@@ -44,9 +44,6 @@ public class JB_ConnectionObj : NetworkBehaviour
 
     private HeroType heroType;
 
-    private Camera mainCam;
-    private Transform mainCamWp;
-
     private GameObject playerUnit;
     private GameObject[] itemSpawnPoints;
     
@@ -55,8 +52,7 @@ public class JB_ConnectionObj : NetworkBehaviour
 
     public override void OnStartServer()
     {
-        groceryItems = new GameObject[9];
-
+        
         Debug.Log("start server called");
         GameObject[] objects = GameObject.FindGameObjectsWithTag(this.tag);
 
@@ -66,20 +62,24 @@ public class JB_ConnectionObj : NetworkBehaviour
             obj.GetComponent<JB_ConnectionObj>().playerConnections = NetworkServer.connections.Count;
         }
 
-      
-
     }
 
+    
+    private void Awake()
+    {
+        groceryItems = new GameObject[9];
+        itemSpawnPoints = GameObject.FindGameObjectsWithTag("GrocerySpawn").OrderBy(go => go.name).ToArray();
+    }
+
+    [Command]
     private void CmdSpawnGroceries()
     {
+        
+
         for(int i = 0; i<groceryItemsPrefabs.Length; ++i)
         {
-            groceryItems[i] = Instantiate(groceryItemsPrefabs[i], itemSpawnPoints[i].transform.position, Quaternion.identity);
-            if (NetworkServer.FindLocalObject(groceryItems[i].GetComponent<NetworkIdentity>().netId) == null)
-            {
-                NetworkServer.Spawn(groceryItems[i]);
-            }
-            
+            groceryItems[i] = Instantiate(groceryItemsPrefabs[i], itemSpawnPoints[i].transform.position, groceryItemsPrefabs[i].transform.rotation);
+            NetworkServer.SpawnWithClientAuthority(groceryItems[i], connectionToClient);
         }
     }
 
@@ -93,8 +93,8 @@ public class JB_ConnectionObj : NetworkBehaviour
         // begin selection phase
         selectionPhaseObj.SetActive(true);
 
-        mainCam = Camera.main;
-
+        if (!isServer) { return; }
+        CmdSpawnGroceries();
         //mainCamWp = GameObject.FindGameObjectWithTag("CameraWP").GetComponent<Transform>();
 
     }
@@ -104,13 +104,10 @@ public class JB_ConnectionObj : NetworkBehaviour
     {
         if (!this.isLocalPlayer) { return; }
 
-        if (isServer && !runOnce)
-        {
-            itemSpawnPoints = GameObject.FindGameObjectsWithTag("GrocerySpawn").OrderBy(go => go.name).ToArray();
 
-            CmdSpawnGroceries();
-            runOnce = true;
-        }
+        
+
+        //CmdSpawnGroceries();
 
         if (playerConnections > 1) // checking to see if both players have joined
         {
@@ -132,10 +129,20 @@ public class JB_ConnectionObj : NetworkBehaviour
 
             CheckPlayerReady();
         }
+        else
+        {
+            StartCoroutine(CoWaitingForPlayer());
+        }
         
     }
 
-   
+    private IEnumerator CoWaitingForPlayer()
+    {
+        waitingForPlayerTextBox.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        waitingForPlayerTextBox.SetActive(false);
+    }
+
     private void CheckPlayerReady()
     {
         // find all the player connection objects in scene
@@ -157,7 +164,7 @@ public class JB_ConnectionObj : NetworkBehaviour
 
         if (all)
         {
-            // start game - TODO
+            // start game
             selectionPhaseObj.SetActive(false);
             
             CmdEnableController();
@@ -168,7 +175,7 @@ public class JB_ConnectionObj : NetworkBehaviour
             selectionPhaseObj.SetActive(false);
             waitingForPlayerTextBox.SetActive(true);
             Debug.Log("one player ready");
-            // wait for other player - TODO
+            // wait for other player
         }
    
     }
@@ -245,11 +252,13 @@ public class JB_ConnectionObj : NetworkBehaviour
         {
             case HeroType.Bob:
                 playerUnit = Instantiate(playerBobPrefab, playerSpawnPoint.position, Quaternion.identity);
+                playerUnit.GetComponent<JB_PlayerUnit>().groceryItems = groceryItems;
                 NetworkServer.SpawnWithClientAuthority(playerUnit, connectionToClient);
                 RpcSpawnCharacter(playerUnit);
                 break;
             case HeroType.Tot:
                 playerUnit = Instantiate(playerTotPrefab, playerSpawnPoint.position, Quaternion.identity);
+                playerUnit.GetComponent<JB_PlayerUnit>().groceryItems = groceryItems;
                 NetworkServer.SpawnWithClientAuthority(playerUnit, connectionToClient);
                 RpcSpawnCharacter(playerUnit);
                 break;

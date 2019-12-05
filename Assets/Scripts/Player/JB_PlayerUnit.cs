@@ -49,7 +49,7 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     public Transform groundCheck;
     public LayerMask whatIsGround;
-    private GameObject[] groceryItems;
+    public GameObject[] groceryItems;
 
     [Header("Audio")]
     public AudioClip bobJump;
@@ -83,6 +83,7 @@ public class JB_PlayerUnit : NetworkBehaviour
     {
         itemsPickedUp = new bool[9];
         audioSource = GetComponent<AudioSource>();
+        groceryItems = new GameObject[9];
 
         if (Application.platform == RuntimePlatform.WindowsEditor)
         {
@@ -216,7 +217,8 @@ public class JB_PlayerUnit : NetworkBehaviour
         //playerObj.GetComponent<JB_PlayerUnit>().itemsPickedUp[index] = true;
         //playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(0).gameObject.SetActive(false);  // fist child gameobject is red cross
         //playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(1).gameObject.SetActive(true);   // second child gameobject is greentick
-        NetworkServer.UnSpawn(groceryItem);
+        //NetworkServer.UnSpawn(groceryItem);
+        groceryItem.SetActive(false);
         RpcUpdateGroceryList(playerObj, index, groceryItem);
         //NetworkServer.Destroy(groceryItem);
     }
@@ -229,7 +231,8 @@ public class JB_PlayerUnit : NetworkBehaviour
         playerObj.GetComponent<JB_PlayerUnit>().itemsPickedUp[index] = true;
         playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(0).gameObject.SetActive(false);  // fist child gameobject is red cross
         playerObj.GetComponent<JB_GroceryManager>().crossTickObj[index].transform.GetChild(1).gameObject.SetActive(true);   // second child gameobject is greentick
-        NetworkServer.UnSpawn(groceryItem);
+        groceryItem.SetActive(false);
+        //NetworkServer.UnSpawn(groceryItem);
         //NetworkServer.Destroy(groceryItem);
     }
     #endregion
