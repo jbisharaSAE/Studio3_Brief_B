@@ -3597,6 +3597,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 525840
+  groceryItems: []
   bobJump: {fileID: 8300000, guid: 2f1d72744b03ffd48b1f1fb66382be2d, type: 3}
   totJump: {fileID: 8300000, guid: f3800b44958f43c48acddaa4f9b7f2c0, type: 3}
   bobSplash: {fileID: 8300000, guid: cb98f025b04295147892beb760e6685d, type: 3}
@@ -4407,6 +4408,7 @@ GameObject:
   - component: {fileID: 5020120595663908072}
   - component: {fileID: 7082945128469850755}
   - component: {fileID: 2835310031082913628}
+  - component: {fileID: 1410894040021647982}
   m_Layer: 21
   m_Name: Camera
   m_TagString: Untagged
@@ -4550,6 +4552,14 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!81 &1410894040021647982
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177203711320264438}
+  m_Enabled: 1
 --- !u!1 &4276567715503695838
 GameObject:
   m_ObjectHideFlags: 0
