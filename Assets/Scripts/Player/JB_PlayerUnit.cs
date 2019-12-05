@@ -75,6 +75,8 @@ public class JB_PlayerUnit : NetworkBehaviour
         GameObject go = GameObject.FindGameObjectWithTag("MatchSystem");
         go.SetActive(false);
 
+        Camera mCam = Camera.main;
+        mCam.GetComponent<AudioListener>().enabled = false;
         
 
         
@@ -274,7 +276,8 @@ public class JB_PlayerUnit : NetworkBehaviour
         Debug.LogWarning("Jump activated!");
         if (isGrounded)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             isGrounded = false;
 
             // play audio jump
