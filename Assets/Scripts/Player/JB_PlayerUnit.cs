@@ -345,6 +345,20 @@ public class JB_PlayerUnit : NetworkBehaviour
             FindOtherPlayer();
             Destroy(col.gameObject);
         }
+
+        if(col.gameObject.tag == "Water")
+        {
+            if(heroType == HeroType.Tot)
+            {
+                // play audio splash for tot
+                audioSource.PlayOneShot(totSplash);
+            }
+            else
+            {
+                // play audio splash for bob
+                audioSource.PlayOneShot(bobSplash);
+            }
+        }
     }
 
     private void FindOtherPlayer()
@@ -359,6 +373,7 @@ public class JB_PlayerUnit : NetworkBehaviour
             {
                 otherPlayer = player;
             }
+
         }
     }
 
@@ -382,8 +397,7 @@ public class JB_PlayerUnit : NetworkBehaviour
                 // if bob hits the water, disable collider
                 Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), this.GetComponent<BoxCollider2D>());
 
-                // play audio splash for bob
-                audioSource.PlayOneShot(bobSplash);
+                
             }
             else if (heroType == HeroType.Tot)
             {
@@ -391,8 +405,7 @@ public class JB_PlayerUnit : NetworkBehaviour
                 // if tot hits the water, let her have the ability to jump
                 isGrounded = true;
 
-                // play audio splash for tot
-                audioSource.PlayOneShot(totSplash);
+                
             }
 
         }
