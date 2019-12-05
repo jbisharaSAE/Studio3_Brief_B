@@ -3578,7 +3578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroType: 1
   moveSpeed: 10
-  jumpForce: 8
+  jumpForce: 9
   isGrounded: 0
   canMove: 0
   leftOrRight: 0
