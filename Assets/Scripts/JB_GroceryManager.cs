@@ -18,18 +18,18 @@ public class JB_GroceryManager : MonoBehaviour
 
     public bool[] itemPickedUp;
 
+    [Tooltip("Fill in what happens when players has found all items")]
+    public string foundAllItems;
+
+    [Tooltip("Fill in what happens when players has not found all items")]
+    public string findRemaining;
+
     // a variable to determine what level the player is in
     private int currentLevel = 1;
 
-    public static int numberOfItems;
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        alertText.text = "Please find remaining items on the list";
-        numberOfItems = 8;
-        itemPickedUp = new bool[numberOfItems]; // one for each grocery
+        itemPickedUp = new bool[9]; // one for each grocery
     }
 
     private void OnEnable()
@@ -58,6 +58,7 @@ public class JB_GroceryManager : MonoBehaviour
 
     public void TestItemsPickedUp()
     {
+        Debug.Log("event got called");
         // testing to see if player has the 3 items in the level to proceed to next level
         if (RunMyForLoop())
         {
@@ -76,13 +77,16 @@ public class JB_GroceryManager : MonoBehaviour
 
     private void EndGame()
     {
+        alertText.text = foundAllItems;
         blackTextBoxArea.SetActive(true);
-        alertText.text = "Congratulations, you found all the items! :)";
+        
+        
     }
 
     IEnumerator CoAlertPlayer()
     {
         // turning on and off the alert text box area
+        alertText.text = findRemaining;
         blackTextBoxArea.SetActive(true);
         yield return new WaitForSeconds(3.5f);
         blackTextBoxArea.SetActive(false);
