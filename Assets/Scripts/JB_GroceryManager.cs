@@ -9,9 +9,9 @@ using TMPro;
 
 public class JB_GroceryManager : MonoBehaviour
 {
-    
+    public JB_Dialogue dialogue;
     public GameObject[] crossTickObj;
-    
+    public GameObject quitButton;
 
     public GameObject blackTextBoxArea;
     public TextMeshProUGUI alertText;
@@ -77,10 +77,20 @@ public class JB_GroceryManager : MonoBehaviour
 
     private void EndGame()
     {
-        alertText.text = foundAllItems;
+        GameObject endScene = GameObject.Find("EndScene");
+        endScene.GetComponent<Image>().enabled = true;
+        quitButton.SetActive(true);
+        //alertText.text = foundAllItems;
+
+        FindObjectOfType<JB_DialogueManager>().StartDialogue(dialogue);
         blackTextBoxArea.SetActive(true);
         
         
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     IEnumerator CoAlertPlayer()
