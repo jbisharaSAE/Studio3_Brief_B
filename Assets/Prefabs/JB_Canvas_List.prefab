@@ -1283,7 +1283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5426768853e520c42a13a009d4791e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue: {fileID: 0}
   crossTickObj: []
+  quitButton: {fileID: 0}
   blackTextBoxArea: {fileID: 7579221546286568411}
   alertText: {fileID: 1539636822649284615}
   itemPickedUp: 
@@ -2368,7 +2370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -30, y: -49.99994}
+  m_AnchoredPosition: {x: -30, y: -50}
   m_SizeDelta: {x: 182.87, y: 46.72998}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &4395911916467607968
@@ -2560,7 +2562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &310541341799486302
 Transform:
   m_ObjectHideFlags: 0
