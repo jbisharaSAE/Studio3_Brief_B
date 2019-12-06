@@ -464,6 +464,8 @@ MonoBehaviour:
   rightTarget: {fileID: 7429338540685813946}
   locationOne: {fileID: 7429338539432800967}
   locationTwo: {fileID: 7429338539932139525}
+  leverSound: {fileID: 8300000, guid: e3b4f584c89320f4287309693602330f, type: 3}
+  platformSound: {fileID: 8300000, guid: a483ef46e4d1ff942bc4c4f7df0bbbca, type: 3}
 --- !u!1 &7429338540685813947
 GameObject:
   m_ObjectHideFlags: 0
