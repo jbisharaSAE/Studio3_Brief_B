@@ -1,9 +1,6 @@
 fileFormatVersion: 2
 guid: 9fc5f3620d77fa7448bce8152c5f5f98
 TextureImporter:
-<<<<<<< Updated upstream
-  internalIDToNameTable: []
-=======
   internalIDToNameTable:
   - first:
       213: 9090745912891169696
@@ -38,7 +35,15 @@ TextureImporter:
   - first:
       213: 5995061086664567810
     second: tile_village_objects_10
->>>>>>> Stashed changes
+  - first:
+      213: 3234431695458990982
+    second: tile_village_objects_11
+  - first:
+      213: 3806955320980057960
+    second: tile_village_objects_12
+  - first:
+      213: -2506982974114924492
+    second: tile_village_objects_13
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -68,24 +73,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-<<<<<<< Updated upstream
-    filterMode: -1
-=======
     filterMode: 0
->>>>>>> Stashed changes
-    aniso: -1
+    aniso: 1
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< Updated upstream
-  spriteMode: 1
-=======
   spriteMode: 2
->>>>>>> Stashed changes
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,11 +112,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< Updated upstream
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
-=======
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -144,18 +136,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -164,9 +144,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 128
-        width: 90
-        height: 49
+        y: 172
+        width: 91
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,7 +154,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a86e51aa7b248844394a35bae59656b7
+      spriteID: 6b344948ffce28740824fe58f890517a
       internalID: 9090745912891169696
       vertices: []
       indices: 
@@ -184,7 +164,7 @@ TextureImporter:
       name: tile_village_objects_1
       rect:
         serializedVersion: 2
-        x: 97
+        x: 96
         y: 192
         width: 91
         height: 55
@@ -195,7 +175,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d8f813f96b983b45866d3ae128b32bb
+      spriteID: b938b2b5200e81d44a859d1551b10c21
       internalID: -7965433409968044157
       vertices: []
       indices: 
@@ -216,7 +196,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5fbf21ed9bf50d4b8a9c02607fd81d3
+      spriteID: 0808c4a618f93c845a5f0a468e90afae
       internalID: -1530849359189400916
       vertices: []
       indices: 
@@ -228,7 +208,7 @@ TextureImporter:
         serializedVersion: 2
         x: 288
         y: 96
-        width: 160
+        width: 154
         height: 148
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -237,7 +217,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1e8133d6dc43054aa64f7262db5c76c
+      spriteID: e61be134466ee504eab17491371d67ca
       internalID: -4384188796586164985
       vertices: []
       indices: 
@@ -258,7 +238,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29082dace68bf7949a8499c00b19decb
+      spriteID: 54ddbe7bbe688a54081d283da2d8e4e5
       internalID: -4578054272413378295
       vertices: []
       indices: 
@@ -279,7 +259,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eab32cc184e27ec439340ef07b7181d7
+      spriteID: 8408e8bcbb366374484697b001e4ef28
       internalID: 2333959185502754984
       vertices: []
       indices: 
@@ -300,7 +280,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbd4dd369d0e3f447bedd759c1da6b89
+      spriteID: aa19f26f04c87044a9403b65fc3a8814
       internalID: -7325290321683544138
       vertices: []
       indices: 
@@ -321,7 +301,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab8f1f32da3ce4944aa6dd63d0d1cda8
+      spriteID: 85ae860a2395a3b4eb139f5d195ae993
       internalID: -7122584548587975516
       vertices: []
       indices: 
@@ -342,7 +322,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a806479a25f12424781e5d905c758734
+      spriteID: 41f54289e598fc648af86bd51e7bbdb6
       internalID: 949462024438346614
       vertices: []
       indices: 
@@ -352,10 +332,10 @@ TextureImporter:
       name: tile_village_objects_9
       rect:
         serializedVersion: 2
-        x: 0
+        x: 63
         y: 0
-        width: 28
-        height: 127
+        width: 3
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,7 +343,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dab8b2a822d7eb47b46953cd7e756e9
+      spriteID: 166f703f8c698f14aab0e8afc5aab5d9
       internalID: 4805737855481500222
       vertices: []
       indices: 
@@ -373,10 +353,73 @@ TextureImporter:
       name: tile_village_objects_10
       rect:
         serializedVersion: 2
-        x: 1
-        y: 177
+        x: 0
+        y: 128
         width: 91
-        height: 69
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a1c477518c27a743be03df40f067591
+      internalID: 5995061086664567810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_village_objects_11
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 159
+        width: 10
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b85fc26d3498f514abbdc0e05287a63e
+      internalID: 3234431695458990982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_village_objects_12
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 127
+        width: 13
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec91340ad247384f90c12e347a09578
+      internalID: 3806955320980057960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_village_objects_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 30
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,17 +427,16 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b609f690243b784fb781d85ed73b57f
-      internalID: 5995061086664567810
+      spriteID: a277a09130b37754e92ad7fe56468ae0
+      internalID: -2506982974114924492
       vertices: []
       indices: 
       edges: []
       weights: []
->>>>>>> Stashed changes
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 3c85f80cd6c3ec548ac11dc648763e29
     internalID: 0
     vertices: []
     indices: 
