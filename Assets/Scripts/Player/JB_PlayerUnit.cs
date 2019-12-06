@@ -16,7 +16,7 @@ public class JB_PlayerUnit : NetworkBehaviour
     
     public float moveSpeed = 5f;
     public float jumpForce = 2f;
-    private bool isPC;
+    public bool isPC;
 
     private Rigidbody2D rb;
     public bool isGrounded;
@@ -129,7 +129,18 @@ public class JB_PlayerUnit : NetworkBehaviour
                 navigationArrow.SetActive(false);
             }
         }
-        
+
+
+        if (isPC)
+        {
+            leftOrRight = (int)Input.GetAxisRaw("Horizontal");
+            if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(1))
+            {
+                Debug.Log("INPUT DETECTION");
+                Jump();
+            }
+        }
+
 
     }
 
@@ -248,14 +259,6 @@ public class JB_PlayerUnit : NetworkBehaviour
         // checks if player is grounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
-        if (isPC)
-        {
-            leftOrRight = (int)Input.GetAxisRaw("Horizontal");
-            if (Input.GetButtonDown("Jump"))
-            {
-                Jump();
-            }
-        }
 
         Movement(leftOrRight);
 
@@ -271,11 +274,15 @@ public class JB_PlayerUnit : NetworkBehaviour
 
     }
 
+    
+
     public void Jump()
     {
+        
         Debug.LogWarning("Jump activated!");
         if (isGrounded)
         {
+            Debug.Log("WE have jumped!");
             //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             isGrounded = false;
@@ -439,6 +446,7 @@ public class JB_PlayerUnit : NetworkBehaviour
         if (col.gameObject.tag != "Player")
         {
             Vector3 hit = col.contacts[0].normal;
+            Debug.Log(hit);
 
             CollideWallTest(hit);
         }
