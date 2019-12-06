@@ -133,7 +133,9 @@ public class JB_PlayerUnit : NetworkBehaviour
 
         if (isPC)
         {
+            
             leftOrRight = (int)Input.GetAxisRaw("Horizontal");
+            Debug.Log(leftOrRight);
             if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(1))
             {
                 Debug.Log("INPUT DETECTION");
@@ -350,7 +352,7 @@ public class JB_PlayerUnit : NetworkBehaviour
         if(col.gameObject.tag == "FindPlayer")
         {
             FindOtherPlayer();
-            Destroy(col.gameObject);
+            //Destroy(col.gameObject);
         }
 
         if(col.gameObject.tag == "Water")

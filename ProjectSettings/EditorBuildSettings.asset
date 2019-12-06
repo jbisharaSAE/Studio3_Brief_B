@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 5ad30e327e9c59e48bedb2b102d0a585
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Info.unity
     guid: bc2f253deb1378e49b8a30bdbb75456b
   - enabled: 1
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/JB_TestArea.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Scenes/JB_LevelReset.unity
+    guid: 5f4f79bd6bb6ac944b2c08099f849aad
   m_configObjects: {}

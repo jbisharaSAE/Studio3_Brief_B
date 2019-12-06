@@ -3592,7 +3592,7 @@ MonoBehaviour:
   activateButton: {fileID: 3207848867525454869}
   blackTextBoxArea: {fileID: 5542344354454685259}
   dialogueTextBox: {fileID: 6604506623902889582}
-  navigationArrow: {fileID: 0}
+  navigationArrow: {fileID: 634444498105124447}
   bLevers: 
   waterMovable: 
   waterToggle: 
@@ -4860,7 +4860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1450153064389081108
 Transform:
   m_ObjectHideFlags: 0

@@ -1091,7 +1091,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 602.2, y: 0.0000019073}
+  m_AnchoredPosition: {x: -638, y: -77.22503}
   m_SizeDelta: {x: 93.22, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7549435934379051916
@@ -1287,6 +1287,8 @@ MonoBehaviour:
   blackTextBoxArea: {fileID: 7579221546286568411}
   alertText: {fileID: 1539636822649284615}
   itemPickedUp: 
+  foundAllItems: 
+  findRemaining: 
 --- !u!1 &2000050149557809916
 GameObject:
   m_ObjectHideFlags: 0
